@@ -1,2 +1,7 @@
-# embed-cpp
-Learning embed c++
+# Compile source code
+```sh
+mkdir build
+cd build
+cmake ..
+```
+
