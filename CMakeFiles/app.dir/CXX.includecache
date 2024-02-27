@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/neko/Desktop/learn/cpp/embed-cpp/foo.cpp
+iostream
+-
+foo.h
+/home/neko/Desktop/learn/cpp/embed-cpp/foo.h
+
+/home/neko/Desktop/learn/cpp/embed-cpp/foo.h
+

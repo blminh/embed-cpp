@@ -1,0 +1,3 @@
+/home/neko/Desktop/learn/cpp/embed-cpp/CMakeFiles/rebuild_cache.dir
+/home/neko/Desktop/learn/cpp/embed-cpp/CMakeFiles/edit_cache.dir
+/home/neko/Desktop/learn/cpp/embed-cpp/CMakeFiles/app.dir
