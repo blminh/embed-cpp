@@ -10,4 +10,7 @@ namespace todo_file
   void doB();
 }
 
+double getTowerHeight();
+double calAndPrintBallHeight(double towerHeight, int seconds);
+
 #endif
