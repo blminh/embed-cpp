@@ -1,6 +1,6 @@
 #pragma once
-#ifndef FOO_H_
-#define FOO_H_
+#ifndef __FOO_H__
+#define __FOO_H__
 
 #include <iostream>
 

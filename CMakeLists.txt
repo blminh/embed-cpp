@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(project_demo)
+project(embed_cpp)
 set(CMAKE_BUILD_TYPE Release)
 
 # include_directories("${PROJECT_SOURCE_DIR}/includes")

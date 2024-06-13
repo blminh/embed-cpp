@@ -1,6 +1,6 @@
 #pragma once
-#ifndef TODO_H_
-#define TODO_H_
+#ifndef __TODO_H__
+#define __TODO_H__
 
 #include <iostream>
 

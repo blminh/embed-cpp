@@ -1,179 +1,125 @@
 #include <iostream>
-#include <string>
-#include <string_view>
 #include <sstream>
 #include <array>
-#include "Random.h"
+#include "../includes/game.h"
 
-class Potion
+using namespace Game;
+
+// Potion
+Potion::Potion() {}
+Potion::~Potion() {}
+Potion::Potion(Potion::Type type, Potion::Size size) : m_type{type}, m_size{size} {}
+
+Potion::Type Potion::getType() const
 {
-public:
-    enum Type
-    {
-        health,
-        strength,
-        poison,
-        max_type
+    return m_type;
+}
+
+Potion::Size Potion::getSize() const
+{
+    return m_size;
+}
+
+std::string_view Potion::getPotionTypeName(Potion::Type type)
+{
+    static constexpr std::string_view names[]{
+        "Health",
+        "Strength",
+        "Poison",
+    };
+    return names[type];
+}
+
+std::string_view Potion::getPotionSizeName(Potion::Size size)
+{
+    static constexpr std::string_view names[]{
+        "Small",
+        "Medium",
+        "Large",
     };
 
-    enum Size
-    {
-        small,
-        medium,
-        large,
-        max_size
+    return names[size];
+}
+
+std::string Potion::getName() const
+{
+    std::stringstream result{};
+    result << Potion::getPotionSizeName(getSize()) << " potion of " << Potion::getPotionTypeName(getType());
+    return result.str();
+}
+
+Potion Potion::getRandomPotion()
+{
+    return Potion{
+        static_cast<Potion::Type>(Random::get(0, max_type - 1)),
+        static_cast<Potion::Size>(Random::get(0, max_size - 1)),
     };
+}
 
-    Potion(Type type, Size size) : m_type{type}, m_size{size} {}
-
-    Type getType() const
-    {
-        return m_type;
-    }
-
-    Size getSize() const
-    {
-        return m_size;
-    }
-
-    static std::string_view getPotionTypeName(Type type)
-    {
-        static constexpr std::string_view names[]{
-            "Health",
-            "Strength",
-            "Poison",
-        };
-        return names[type];
-    }
-
-    static std::string_view getPotionSizeName(Size size)
-    {
-        static constexpr std::string_view names[]{
-            "Small",
-            "Medium",
-            "Large",
-        };
-
-        return names[size];
-    }
-
-    std::string getName() const
-    {
-        std::stringstream result{};
-        result << getPotionSizeName(getSize()) << " potion of " << getPotionTypeName(getType());
-        return result.str();
-    }
-
-    static Potion getRandomPotion()
-    {
-        return Potion{
-            static_cast<Type>(Random::get(0, max_type - 1)),
-            static_cast<Size>(Random::get(0, max_size - 1)),
-        };
-    }
-
-private:
-    Type m_type{};
-    Size m_size{};
-};
-
-class Creature
+// Creature
+Creature::Creature(std::string_view name, char symbol, int health, int damage, int gold)
+    : m_name{name}, m_symbol{symbol}, m_health{health}, m_damage{damage}, m_gold{gold}
 {
-protected:
-    std::string m_name;
-    char m_symbol{};
-    int m_health{};
-    int m_damage{};
-    int m_gold{};
+}
 
-public:
-    Creature(std::string_view name, char symbol, int health, int damage, int gold)
-        : m_name{name}, m_symbol{symbol}, m_health{health}, m_damage{damage}, m_gold{gold}
-    {
-    }
+const std::string &Creature::getName() const { return m_name; }
+char Creature::getSymbol() const { return m_symbol; }
+int Creature::getHealth() const { return m_health; }
+int Creature::getDamage() const { return m_damage; }
+int Creature::getGold() const { return m_gold; }
 
-    const std::string &getName() const { return m_name; }
-    char getSymbol() const { return m_symbol; }
-    int getHealth() const { return m_health; }
-    int getDamage() const { return m_damage; }
-    int getGold() const { return m_gold; }
+void Creature::reduceHealth(int health) { m_health -= health; }
+bool Creature::isDead() const { return m_health <= 0; }
+void Creature::addGold(int gold) { m_gold += gold; }
 
-    void reduceHealth(int health) { m_health -= health; }
-    bool isDead() const { return m_health <= 0; }
-    void addGold(int gold) { m_gold += gold; }
-};
+// Monster
+Monster::Monster(Monster::Type type) : Creature{monsterData[type]} {}
 
-class Monster : public Creature
+Monster Monster::getRandomMonster()
 {
-public:
-    enum Type
-    {
-        dragon,
-        orc,
-        slime,
-        max_types
-    };
+    int num{Random::get(0, max_types - 1)};
+    return Monster{static_cast<Monster::Type>(num)};
+}
 
-    Monster(Type type) : Creature{monsterData[type]} {}
-
-    static Monster getRandomMonster()
-    {
-        int num{Random::get(0, max_types - 1)};
-        return Monster{static_cast<Type>(num)};
-    }
-
-private:
-    inline static Creature monsterData[]{
-        Creature{"dragon", 'd', 20, 4, 100},
-        Creature{"orc", 'o', 4, 2, 25},
-        Creature{"slime", 's', 1, 1, 10}};
-    static_assert(std::size(monsterData) == max_types);
-};
-
-class Player : public Creature
+// Player
+Player::Player(std::string_view name) : Creature{name, '@', 10, 1, 0} {}
+Player::~Player()
 {
-private:
-    int m_level{1};
+    std::cout << "Destruction player" << std::endl;
+}
 
-public:
-    Player(std::string_view name) : Creature{name, '@', 10, 1, 0} {}
-    ~Player()
+void Player::levelUp()
+{
+    ++this->m_level;
+    ++this->m_damage;
+}
+
+void Player::drinkPotion(const Potion &potion)
+{
+    switch (potion.getType())
     {
-        std::cout << "Destruction player" << std::endl;
+    case Potion::health:
+        m_health += (potion.getSize() == Potion::large) ? 5 : 2;
+        break;
+    case Potion::strength:
+        ++m_damage;
+        break;
+    case Potion::poison:
+        reduceHealth(1);
+        break;
+    case Potion::max_type:
+        break;
+
+    default:
+        break;
     }
+}
 
-    void levelUp()
-    {
-        ++this->m_level;
-        ++this->m_damage;
-    }
+int Player::getLevel() const { return m_level; }
+bool Player::hasWon() const { return m_level > 20; }
 
-    void drinkPotion(const Potion &potion)
-    {
-        switch (potion.getType())
-        {
-        case Potion::health:
-            m_health += (potion.getSize() == Potion::large) ? 5 : 2;
-            break;
-        case Potion::strength:
-            ++m_damage;
-            break;
-        case Potion::poison:
-            reduceHealth(1);
-            break;
-        case Potion::max_type:
-            break;
-
-        default:
-            break;
-        }
-    }
-
-    int getLevel() const { return m_level; }
-    bool hasWon() const { return m_level > 20; }
-};
-
-void onMonsterKilled(Player &player, const Monster &monster)
+// Game
+void Game::onMonsterKilled(Player &player, const Monster &monster)
 {
     std::cout << "You killed the " << monster.getName() << ". \n";
     player.levelUp();
@@ -189,7 +135,6 @@ void onMonsterKilled(Player &player, const Monster &monster)
     constexpr int potionChance{30};
     if (Random::get(1, 100) <= potionChance)
     {
-        // Generate a random potion
         auto potion{Potion::getRandomPotion()};
 
         std::cout << "You found a mythical potion! Do you want to drink it? [y/n]: ";
@@ -198,15 +143,13 @@ void onMonsterKilled(Player &player, const Monster &monster)
 
         if (choice == 'Y' || choice == 'y')
         {
-            // Apply the effect
             player.drinkPotion(potion);
-            // Reveal the potion type and size
             std::cout << "You drank a " << potion.getName() << ".\n";
         }
     }
 }
 
-void attackMonster(Player &player, Monster &monster)
+void Game::attackMonster(Player &player, Monster &monster)
 {
     if (player.isDead())
         return;
@@ -221,7 +164,7 @@ void attackMonster(Player &player, Monster &monster)
     }
 }
 
-void attackPlayer(Player &player, const Monster &monster)
+void Game::attackPlayer(Player &player, const Monster &monster)
 {
     if (monster.isDead())
         return;
@@ -230,7 +173,7 @@ void attackPlayer(Player &player, const Monster &monster)
     std::cout << "The " << monster.getName() << " hit you for " << monster.getDamage() << " damage. \n";
 }
 
-void fightMonster(Player &player)
+void Game::fightMonster(Player &player)
 {
     Monster monster{Monster::getRandomMonster()};
     std::cout << "You have encountered a " << monster.getName() << std::endl;
@@ -271,7 +214,7 @@ void fightMonster(Player &player)
     }
 }
 
-int main()
+void Game::game()
 {
     std::string playerName;
     std::cout << "Enter your name: ";
@@ -292,6 +235,4 @@ int main()
     {
         std::cout << "You wont the game with " << player.getGold() << " gold. \n";
     }
-
-    return 0;
 }

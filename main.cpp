@@ -1,7 +1,15 @@
-#include "src/threads.cpp"
+#include "includes/counter.h"
+#include "includes/game.h"
+#include "includes/storage_templates.h"
 
 int main()
 {
-    threads();
-    return 0;
+  // Counter count;
+  // count.counter();
+
+  // Game::game();
+
+  storage_templates::templates();
+
+  return 0;
 }
