@@ -1,15 +1,33 @@
-#include "includes/counter.h"
+#include "includes/threads.h"
 #include "includes/game.h"
 #include "includes/storage_templates.h"
+#include "src/bench.cpp"
+#include "src/exceptions.cpp"
+
+using namespace threads;
 
 int main()
 {
+  // exceptions();
+
+  // bench_test();
+
+  // Thread:
   // Counter count;
   // count.counter();
 
-  // Game::game();
+  // AtomicCounter aCounter;
+  // aCounter.atomicCounter();
 
-  storage_templates::templates();
+  FutureThread fThread;
+  // fThread.futureThread();
+  // fThread.futureWaitFor();
+  // fThread.futureRet();
+
+  // Template:
+  // storage_templates::templates();
+
+  // Game::game();
 
   return 0;
 }
