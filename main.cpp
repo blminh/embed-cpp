@@ -2,6 +2,8 @@
 #include "includes/game.hpp"
 #include "includes/storage_templates.hpp"
 #include "includes/exceptions.hpp"
+#include "includes/fraction.hpp"
+#include "includes/animal.hpp"
 #include "src/bench.cpp"
 #include "src/example.cpp"
 
@@ -9,29 +11,23 @@
 
 int main()
 {
-  runExample();
+  // runExample();
 
-  // Exceptions:
+  // >>> Fraction:
+  fraction::fraction();
+
+  // >>> Animal:
+  // animal::animalAction();
+
+  // >>> Exceptions:
   // user_exceptions::Exceptions exc;
   // exc.doExceptions();
-  // user_exceptions::IntArray array;
-
-  // try
-  // {
-  //   int value{array[4]};
-  // }
-  // catch (const user_exceptions::ArrayException &exception) // derived catch blocks go first
-  // {
-  //   std::cerr << "An array exception occurred (" << exception.what() << ")\n";
-  // }
-  // catch (const std::exception &exception)
-  // {
-  //   std::cerr << "Some other std::exception occurred (" << exception.what() << ")\n";
-  // }
+  // user_exceptions::arrayExceptionAction();
+  // user_exceptions::moveClassAction();
 
   // bench_test();
 
-  // Thread:
+  // >>> Thread:
   // Counter count;
   // count.counter();
 
@@ -43,9 +39,10 @@ int main()
   // fThread.futureWaitFor();
   // fThread.futureRet();
 
-  // Template:
+  // >>> Template:
   // storage_templates::templates();
 
+  // >>> Game:
   // Game::game();
 
   return 0;

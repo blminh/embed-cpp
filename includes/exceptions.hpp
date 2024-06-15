@@ -4,6 +4,8 @@
 #include <string>
 #include <string_view>
 #include <exception>
+#include <utility>
+#include <stdexcept>
 
 namespace user_exceptions
 {
@@ -18,6 +20,7 @@ namespace user_exceptions
         void doExceptions();
     };
 
+    // Array Exception
     class ArrayException : public std::exception
     {
     private:
@@ -40,6 +43,37 @@ namespace user_exceptions
         int getLength() const;
         int &operator[](const int index);
     };
+
+    void arrayExceptionAction();
+
+    // The move constructors exception problem
+    class MoveClass
+    {
+    private:
+    private:
+        int *m_resource{};
+
+    public:
+        MoveClass() = default;
+        MoveClass(int resource);
+        // Copy constructor
+        MoveClass(const MoveClass &that);
+        // Move constructor
+        MoveClass(MoveClass &&that) noexcept;
+        ~MoveClass();
+
+        friend std::ostream &operator<<(std::ostream &out, const MoveClass &moveClass);
+    };
+
+    class CopyClass
+    {
+    public:
+        bool m_throw{};
+        CopyClass() = default;
+        CopyClass(const CopyClass &that);
+    };
+
+    void moveClassAction();
 };
 
 #endif
