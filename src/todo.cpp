@@ -1,4 +1,4 @@
-#include "todo.h"
+#include "todo.hpp"
 
 namespace todo_file
 {
@@ -38,14 +38,17 @@ constexpr double calBallHeight(double towerHeight, int seconds)
     return ballHeight;
 }
 
-void printBallHeight(double ballHeight, int seconds){
+void printBallHeight(double ballHeight, int seconds)
+{
     if (ballHeight > 0.0)
         std::cout << "At " << seconds << " seconds, the ball is at height: " << ballHeight << " meters\n";
-    else std::cout << "At " << seconds << " seconds, the ball is on the ground.\n";
+    else
+        std::cout << "At " << seconds << " seconds, the ball is on the ground.\n";
 }
 
-double calAndPrintBallHeight(double towerHeight, int seconds) {
-    double ballHeight{ calBallHeight(towerHeight, seconds) };
+double calAndPrintBallHeight(double towerHeight, int seconds)
+{
+    double ballHeight{calBallHeight(towerHeight, seconds)};
     printBallHeight(ballHeight, seconds);
 
     return ballHeight;

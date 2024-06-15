@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <array>
-#include "../includes/game.h"
+#include "../includes/game.hpp"
 
 using namespace Game;
 

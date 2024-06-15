@@ -7,7 +7,7 @@
 #include <future>
 #include <chrono>
 #include <condition_variable>
-#include "../includes/threads.h"
+#include "../includes/threads.hpp"
 
 namespace threads
 {
