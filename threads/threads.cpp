@@ -2,50 +2,50 @@
 #include <stdexcept>
 #include <cmath>
 #include <vector>
-#include <mutex>
 #include <thread>
 #include <future>
 #include <chrono>
 #include <condition_variable>
-#include "../includes/threads.hpp"
+#include "includes/counter.hpp"
+#include "includes/atomicCounter.hpp"
+#include "includes/futureThread.hpp"
+#include "includes/safeCounter.hpp"
 
 namespace threads
 {
-    std::mutex mutex;
-
     // Counter
     Counter::Counter() {}
+    Counter::Counter(int value) : mValue_{value} {}
     Counter::~Counter() {}
-    Counter::Counter(int value) : m_value{value} {}
 
     void Counter::increment()
     {
-        mutex.lock();
-        ++m_value;
-        mutex.unlock();
+        mMutex_.lock();
+        ++mValue_;
+        mMutex_.unlock();
     }
 
     void Counter::decrement()
     {
-        mutex.lock();
+        mMutex_.lock();
         try
         {
             std::cout << "Error" << std::endl;
-            --m_value;
+            --mValue_;
         }
         catch (std::exception e)
         {
 
-            mutex.unlock();
+            mMutex_.unlock();
             std::cout << "Error: " << e.what() << std::endl;
             throw e;
         }
-        mutex.unlock();
+        mMutex_.unlock();
     }
 
     int Counter::getValue()
     {
-        return m_value;
+        return mValue_;
     }
 
     void Counter::counter()
@@ -54,11 +54,69 @@ namespace threads
         std::vector<std::thread> threadList;
         for (int i = 0; i < 5; i++)
         {
-            threadList.push_back(std::thread([&counter]()
-                                             {
-      for (int j = 0; j < 10; j++) {
-        counter.increment();
-      } }));
+            threadList.push_back(std::thread(
+                [&counter]()
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        counter.increment();
+                    }
+                }));
+        }
+
+        for (auto &thread : threadList)
+        {
+            thread.join();
+        }
+
+        std::cout << counter.getValue() << std::endl;
+    }
+
+    // SafeCounter
+    SafeCounter::SafeCounter() {}
+    SafeCounter::SafeCounter(int value) : mValue_{value} {}
+    SafeCounter::~SafeCounter() {}
+
+    void SafeCounter::increment()
+    {
+        std::lock_guard<std::mutex> guard(mMutex_);
+        ++mValue_;
+    }
+
+    void SafeCounter::decrement()
+    {
+        std::lock_guard<std::mutex> guard(mMutex_);
+        try
+        {
+            std::cout << "Error" << std::endl;
+            --mValue_;
+        }
+        catch (std::exception e)
+        {
+            std::cout << "Error: " << e.what() << std::endl;
+            throw e;
+        }
+    }
+
+    int SafeCounter::getValue()
+    {
+        return mValue_;
+    }
+
+    void SafeCounter::safeCounter()
+    {
+        SafeCounter counter;
+        std::vector<std::thread> threadList;
+        for (int i = 0; i < 3; i++)
+        {
+            threadList.push_back(std::thread(
+                [&counter]()
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        counter.increment();
+                    }
+                }));
         }
 
         for (auto &thread : threadList)
@@ -71,21 +129,21 @@ namespace threads
 
     // Atomic Counter
     AtomicCounter::AtomicCounter() {}
-    AtomicCounter::AtomicCounter(int val) : value{val} {}
+    AtomicCounter::AtomicCounter(int val) : mValue_{val} {}
 
     void AtomicCounter::increment()
     {
-        ++value;
+        ++mValue_;
     }
 
     void AtomicCounter::decrement()
     {
-        --value;
+        --mValue_;
     }
 
     int AtomicCounter::get()
     {
-        return value.load();
+        return mValue_.load();
     }
 
     void AtomicCounter::atomicCounter()
@@ -106,9 +164,12 @@ namespace threads
 
     void FutureThread::futureThread()
     {
-        auto future = std::async(std::launch::async, []()
-                                 { std::this_thread::sleep_for(std::chrono::seconds(5));
-                           return 42; });
+        auto future = std::async(std::launch::async,
+                                 []()
+                                 {
+                                     std::this_thread::sleep_for(std::chrono::seconds(5));
+                                     return 42;
+                                 });
         std::cout << "Start: \n";
         std::cout << future.get() << std::endl;
         std::cout << "End: \n";
@@ -160,10 +221,12 @@ namespace threads
 
     void FutureThread::futureRet()
     {
-        auto future = std::async(std::launch::async, []()
+        auto future = std::async(std::launch::async,
+                                 []()
                                  {
-            std::this_thread::sleep_for(std::chrono::seconds(5));
-            return 42; });
+                                     std::this_thread::sleep_for(std::chrono::seconds(5));
+                                     return 42;
+                                 });
 
         future.wait();
         std::cout << "After wait: " << future.get() << std::endl;

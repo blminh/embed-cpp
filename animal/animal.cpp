@@ -1,11 +1,13 @@
-#include "../includes/animal.hpp"
+#include "includes/animal.hpp"
+#include "includes/cat.hpp"
+#include "includes/dog.hpp"
 
 namespace animal
 {
-    Animal::Animal(std::string_view name) : m_name{name} {}
+    Animal::Animal(std::string_view name) : mName_{name} {}
     std::string_view Animal::getName() const
     {
-        return m_name;
+        return mName_;
     }
 
     std::string_view Animal::speak() const

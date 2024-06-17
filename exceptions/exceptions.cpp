@@ -1,6 +1,10 @@
 #include <cmath>
 #include <iostream>
-#include "../includes/exceptions.hpp"
+#include "includes/exceptions.hpp"
+#include "includes/arrayException.hpp"
+#include "includes/intArray.hpp"
+#include "includes/moveClass.hpp"
+#include "includes/copyClass.hpp"
 
 namespace user_exceptions
 {
@@ -38,12 +42,14 @@ namespace user_exceptions
     }
 
     // ArrayException
-    ArrayException::ArrayException(std::string_view error) : m_error{error} {}
+    ArrayException::ArrayException() {}
+    ArrayException::ArrayException(std::string_view error) : mError_{error} {}
 
-    const std::string &ArrayException::getError() const { return m_error; }
+    const std::string &ArrayException::getError() const { return mError_; }
+
     const char *ArrayException::what() const noexcept
     {
-        return m_error.c_str();
+        return mError_.c_str();
     }
 
     // IntArray
@@ -54,10 +60,10 @@ namespace user_exceptions
     {
         if (index < 0 || index >= getLength())
             throw ArrayException("Invalid index");
-        return m_data[index];
+        return mData_[index];
     }
 
-    void arrayExceptionAction()
+    void ArrayException::arrayExceptionAction()
     {
         IntArray array;
 
@@ -85,36 +91,38 @@ namespace user_exceptions
     }
 
     // Move class
-    MoveClass::MoveClass(int resource) : m_resource{new int{resource}} {}
+    MoveClass::MoveClass(int resource) : mResource_{new int{resource}} {}
+
     // Copy constructor
     MoveClass::MoveClass(const MoveClass &that)
     {
-        if (that.m_resource != nullptr)
+        if (that.mResource_ != nullptr)
         {
-            m_resource = new int{*that.m_resource};
+            mResource_ = new int{*that.mResource_};
         }
     }
+
     // Move constructor
-    MoveClass::MoveClass(MoveClass &&that) noexcept : m_resource{that.m_resource}
+    MoveClass::MoveClass(MoveClass &&that) noexcept : mResource_{that.mResource_}
     {
-        that.m_resource = nullptr;
+        that.mResource_ = nullptr;
     }
     MoveClass::~MoveClass()
     {
         std::cout << "destroying " << *this << std::endl;
-        delete m_resource;
+        delete mResource_;
     }
 
     std::ostream &operator<<(std::ostream &out, const MoveClass &moveClass)
     {
         out << "MoveClass(";
-        if (moveClass.m_resource == nullptr)
+        if (moveClass.mResource_ == nullptr)
         {
             out << "empty";
         }
         else
         {
-            out << *moveClass.m_resource;
+            out << *moveClass.mResource_;
         }
 
         out << ")";
@@ -122,15 +130,15 @@ namespace user_exceptions
     }
 
     // Copy class
-    CopyClass::CopyClass(const CopyClass &that) : m_throw{that.m_throw}
+    CopyClass::CopyClass(const CopyClass &that) : pubThrow_{that.pubThrow_}
     {
-        if (m_throw)
+        if (pubThrow_)
         {
             throw std::runtime_error{"abort"};
         }
     }
 
-    void moveClassAction()
+    void MoveClass::moveClassAction()
     {
         // We can make a std::pair without any problems:
         std::pair my_pair{MoveClass{13}, CopyClass{}};
@@ -140,7 +148,7 @@ namespace user_exceptions
         // But the problem arises when we try to move that pair into another pair.
         try
         {
-            my_pair.second.m_throw = true; // To trigger copy constructor exception
+            my_pair.second.pubThrow_ = true; // To trigger copy constructor exception
 
             // The following line will throw an exception
             // std::pair moved_pair{std::move(my_pair)}; // We'll comment out this line later

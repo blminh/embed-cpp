@@ -1,4 +1,3 @@
-#pragma once
 #ifndef __FRACTION_H__
 #define __FRACTION_H__
 

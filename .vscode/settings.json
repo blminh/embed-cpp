@@ -59,6 +59,8 @@
     "thread": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "future": "cpp"
+    "future": "cpp",
+    "shared_mutex": "cpp",
+    "cstring": "cpp"
   }
 }
