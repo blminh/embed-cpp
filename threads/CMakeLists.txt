@@ -3,10 +3,8 @@ project(threads)
 
 include_directories(${PROJECT_SOURCE_DIR}/includes)
 
-file(GLOB SOURCES "*.cpp")
-
-add_library(applib SHARED main.cpp threads.cpp)
+file(GLOB SOURCES "main.cpp" "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} applib)
+target_link_libraries(${PROJECT_NAME})

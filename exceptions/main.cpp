@@ -6,11 +6,11 @@
 
 int main()
 {
-    // user_exceptions::Exceptions exc;
-    // exc.doExceptions();
+    user_exceptions::Exceptions exc;
+    exc.doExceptions();
 
-    user_exceptions::ArrayException arrExc;
-    arrExc.arrayExceptionAction();
+    // user_exceptions::ArrayException arrExc;
+    // arrExc.arrayExceptionAction();
 
     // user_exceptions::MoveClass moveClass;
     // moveClass.moveClassAction();
