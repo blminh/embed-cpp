@@ -2,7 +2,7 @@
 #define __ANIMAL_DOG_H__
 
 #include <string_view>
-#include "animal.hpp"
+#include "Animal.hpp"
 
 namespace animal
 {

@@ -2,10 +2,11 @@
 #define __ATOMIC_COUNTER_H__
 
 #include <atomic>
+#include "CounterBase.hpp"
 
 namespace threads
 {
-    class AtomicCounter
+    class AtomicCounter : public CounterBase
     {
     private:
         std::atomic<int> mValue_;
@@ -17,8 +18,7 @@ namespace threads
         void increment();
         void decrement();
 
-        int get();
-        void atomicCounter();
+        int getValue();
     };
 };
 

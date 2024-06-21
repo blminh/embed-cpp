@@ -1,4 +1,4 @@
-#include "../includes/creature.hpp"
+#include "../includes/Creature.hpp"
 
 namespace Game
 {

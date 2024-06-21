@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
-#include "../includes/moveClass.hpp"
-#include "../includes/copyClass.hpp"
+#include "../includes/MoveClass.hpp"
+#include "../includes/CopyClass.hpp"
 
 namespace user_exceptions
 {
@@ -42,31 +42,5 @@ namespace user_exceptions
 
         out << ")";
         return out;
-    }
-
-    void MoveClass::moveClassAction()
-    {
-        // We can make a std::pair without any problems:
-        std::pair my_pair{MoveClass{13}, CopyClass{}};
-
-        std::cout << "my_pair.first: " << my_pair.first << '\n';
-
-        // But the problem arises when we try to move that pair into another pair.
-        try
-        {
-            my_pair.second.pubThrow_ = true; // To trigger copy constructor exception
-
-            // The following line will throw an exception
-            // std::pair moved_pair{std::move(my_pair)}; // We'll comment out this line later
-            std::pair moved_pair{std::move_if_noexcept(my_pair)}; // We'll uncomment this line later
-
-            std::cout << "moved pair exists\n"; // Never prints
-        }
-        catch (const std::exception &ex)
-        {
-            std::cerr << "Error found: " << ex.what() << '\n';
-        }
-
-        std::cout << "my_pair.first: " << my_pair.first << '\n';
     }
 };

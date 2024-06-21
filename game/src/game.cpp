@@ -1,9 +1,9 @@
 #include <iostream>
 #include <sstream>
-#include "../includes/game.hpp"
-#include "../includes/potion.hpp"
-#include "../includes/monster.hpp"
-#include "../includes/player.hpp"
+#include "../includes/Game.hpp"
+#include "../includes/Potion.hpp"
+#include "../includes/Monster.hpp"
+#include "../includes/Player.hpp"
 
 namespace Game
 {

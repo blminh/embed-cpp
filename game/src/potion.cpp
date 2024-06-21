@@ -1,6 +1,6 @@
 #include <sstream>
 #include "../../includes/Random.hpp"
-#include "../includes/potion.hpp"
+#include "../includes/Potion.hpp"
 
 namespace Game
 {

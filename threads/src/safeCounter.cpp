@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <vector>
 #include <thread>
-#include "../includes/safeCounter.hpp"
+#include "../includes/SafeCounter.hpp"
 
 namespace threads
 {
@@ -34,29 +34,5 @@ namespace threads
     int SafeCounter::getValue()
     {
         return mValue_;
-    }
-
-    void SafeCounter::safeCounter()
-    {
-        SafeCounter counter;
-        std::vector<std::thread> threadList;
-        for (int i = 0; i < 3; i++)
-        {
-            threadList.push_back(std::thread(
-                [&counter]()
-                {
-                    for (int j = 0; j < 5; j++)
-                    {
-                        counter.increment();
-                    }
-                }));
-        }
-
-        for (auto &thread : threadList)
-        {
-            thread.join();
-        }
-
-        std::cout << counter.getValue() << std::endl;
     }
 };

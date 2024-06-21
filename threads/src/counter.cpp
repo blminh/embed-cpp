@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <thread>
 #include <stdexcept>
-#include "../includes/counter.hpp"
+#include "../includes/Counter.hpp"
 
 namespace threads
 {
@@ -38,29 +35,5 @@ namespace threads
     int Counter::getValue()
     {
         return mValue_;
-    }
-
-    void Counter::counter()
-    {
-        Counter counter;
-        std::vector<std::thread> threadList;
-        for (int i = 0; i < 5; i++)
-        {
-            threadList.push_back(std::thread(
-                [&counter]()
-                {
-                    for (int j = 0; j < 10; j++)
-                    {
-                        counter.increment();
-                    }
-                }));
-        }
-
-        for (auto &thread : threadList)
-        {
-            thread.join();
-        }
-
-        std::cout << counter.getValue() << std::endl;
     }
 };

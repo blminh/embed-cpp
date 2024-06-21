@@ -1,11 +1,10 @@
 #include <cmath>
 #include <iostream>
-#include "../includes/intArray.hpp"
-#include "../includes/arrayException.hpp"
+#include "../includes/IntArray.hpp"
+#include "../includes/ArrayException.hpp"
 
 namespace user_exceptions
 {
-    // IntArray
     IntArray::IntArray() {}
     int IntArray::getLength() const { return 3; }
 

@@ -1,5 +1,4 @@
-#include "../includes/animal.hpp"
-#include "../includes/dog.hpp"
+#include "../includes/Dog.hpp"
 
 namespace animal
 {

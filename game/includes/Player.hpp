@@ -3,8 +3,8 @@
 
 #include <string>
 #include <string_view>
-#include "creature.hpp"
-#include "potion.hpp"
+#include "Creature.hpp"
+#include "Potion.hpp"
 
 namespace Game
 {

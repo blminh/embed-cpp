@@ -2,10 +2,11 @@
 #define __SAFE_COUNTER_H__
 
 #include <mutex>
+#include "CounterBase.hpp"
 
 namespace threads
 {
-    class SafeCounter
+    class SafeCounter : public CounterBase
     {
     private:
         int mValue_{};
@@ -19,7 +20,6 @@ namespace threads
         void increment();
         void decrement();
         int getValue();
-        void safeCounter();
     };
 };
 

@@ -1,7 +1,7 @@
 #ifndef __GAME_MONSTER_H__
 #define __GAME_MONSTER_H__
 
-#include "creature.hpp"
+#include "Creature.hpp"
 
 namespace Game
 {

@@ -2,8 +2,8 @@
 #define __GAME_H__
 
 #include "../../includes/Random.hpp"
-#include "player.hpp"
-#include "monster.hpp"
+#include "Player.hpp"
+#include "Monster.hpp"
 
 namespace Game
 {

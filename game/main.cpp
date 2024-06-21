@@ -1,6 +1,6 @@
 #include <iostream>
-#include "includes/game.hpp"
-#include "includes/player.hpp"
+#include "includes/Game.hpp"
+#include "includes/Player.hpp"
 
 int main()
 {

@@ -1,5 +1,5 @@
 #include "../../includes/Random.hpp"
-#include "../includes/monster.hpp"
+#include "../includes/Monster.hpp"
 
 namespace Game
 {

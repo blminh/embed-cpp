@@ -1,6 +1,6 @@
 #include <iostream>
 #include <thread>
-#include "../includes/atomicCounter.hpp"
+#include "../includes/AtomicCounter.hpp"
 
 namespace threads
 {
@@ -17,20 +17,8 @@ namespace threads
         --mValue_;
     }
 
-    int AtomicCounter::get()
+    int AtomicCounter::getValue()
     {
         return mValue_.load();
-    }
-
-    void AtomicCounter::atomicCounter()
-    {
-        AtomicCounter aCounter{10};
-        std::cout << aCounter.get() << std::endl;
-        aCounter.increment();
-        std::cout << "After increment: " << aCounter.get() << std::endl;
-        aCounter.decrement();
-        aCounter.decrement();
-        aCounter.decrement();
-        std::cout << "After decrement: " << aCounter.get() << std::endl;
     }
 };

@@ -1,6 +1,6 @@
 #include <cmath>
 #include <iostream>
-#include "../includes/copyClass.hpp"
+#include "../includes/CopyClass.hpp"
 
 namespace user_exceptions
 {

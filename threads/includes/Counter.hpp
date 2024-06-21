@@ -1,11 +1,13 @@
 #ifndef __COUNTER_H__
 #define __COUNTER_H__
 
+#include <iostream>
 #include <mutex>
+#include "CounterBase.hpp"
 
 namespace threads
 {
-    class Counter
+    class Counter : public CounterBase
     {
     private:
         int mValue_{};
