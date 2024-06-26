@@ -11,10 +11,16 @@ add_executable(server
 
 target_link_libraries(server pthread)
 
-add_executable(client client.cpp)
+add_executable(client
+    "client.cpp"
+    "src/TcpClient.cpp"
+)
 
 target_link_libraries(client pthread)
 
-add_executable(clientTwo clientTwo.cpp)
+add_executable(clientTwo
+    "clientTwo.cpp"
+    "src/TcpClient.cpp"
+)
 
 target_link_libraries(clientTwo pthread)

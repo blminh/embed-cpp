@@ -8,6 +8,7 @@ int main()
     tcpServer.start();
     tcpServer.receiver();
     tcpServer.sender();
+    tcpServer.remover();
 
     while (true)
     {

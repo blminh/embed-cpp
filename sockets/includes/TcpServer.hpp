@@ -7,6 +7,10 @@
 #include <memory>
 #include <mutex>
 #include "ClientHandler.hpp"
+#include "BoundBuffer.hpp"
+
+#define DATASIZE 128
+#define PORT 8080
 
 class TcpServer
 {
@@ -17,17 +21,21 @@ public:
     void start();
     void receiver();
     void sender();
-    void removeClient(int clientFd);
+    void remover();
+    auto findRemoveClient(int clientFd);
 
 private:
     void doSend();
     void doReceive();
+    void doRemoveClient();
 
 private:
     std::atomic<bool> running_;
     std::vector<std::shared_ptr<ClientHandler>> clientList_;
+    std::shared_ptr<BoundedBuffer<int>> delClientList_;
     std::thread senderThread_;
     std::thread receiverThread_;
+    std::thread removerThread_;
     std::mutex mutex_;
     int serverFd_;
 };

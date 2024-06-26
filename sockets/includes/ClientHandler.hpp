@@ -4,25 +4,26 @@
 #include <atomic>
 #include <thread>
 #include <functional>
+#include <memory>
+#include "BoundBuffer.hpp"
 
-#define PORT 8080
 #define DATASIZE 128
 
 class ClientHandler
 {
-private:
-    int clientFd_;
-    std::atomic<bool> running_;
-    std::thread receiverThread_;
-    std::function<void(int)> closeCb_;
-
 public:
-    ClientHandler(int clientFd, std::function<void(int)> closeCb = nullptr);
+    ClientHandler(int clientFd, std::shared_ptr<BoundedBuffer<int>> buffer);
     ~ClientHandler();
 
     const int getFd();
     void doSend(std::string msg);
-    void doReceiver();
+    void doReceive();
+
+private:
+    int clientFd_;
+    std::atomic<bool> running_;
+    std::thread receiverThread_;
+    std::shared_ptr<BoundedBuffer<int>> buffer_;
 };
 
 #endif

@@ -3,9 +3,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <algorithm>
 
-TcpServer::TcpServer() : running_{true}
+TcpServer::TcpServer() : running_{true}, delClientList_(new BoundedBuffer<int>(10))
 {
 }
 
@@ -14,6 +13,10 @@ TcpServer::~TcpServer()
     running_.store(false);
     if (senderThread_.joinable())
         senderThread_.join();
+    if (receiverThread_.joinable())
+        receiverThread_.join();
+    if (removerThread_.joinable())
+        removerThread_.join();
 }
 
 void TcpServer::start()
@@ -69,38 +72,29 @@ void TcpServer::sender()
     senderThread_ = std::thread(std::bind(&TcpServer::doSend, this));
 }
 
-void TcpServer::removeClient(const int fd)
+void TcpServer::remover()
 {
-    // lock
-    std::cout << "remove client!\n";
-    // for (int i = 0; i < sizeof(clientList_); i++)
-    // {
-    //     if (clientList_[i]->getFd() == fd)
-    //     {
-    //         std::cout << "Index: " << i << "| " << clientList_[i]->getFd() << std::endl;
-    //         clientList_.erase(std::vector<ClientHandler>(i));
-    //     }
-    // }
+    removerThread_ = std::thread(std::bind(&TcpServer::doRemoveClient, this));
+}
 
-    mutex_.lock();
-    std::vector<std::shared_ptr<ClientHandler>>::iterator itr = clientList_.begin();
-    while (itr != clientList_.end())
+void TcpServer::doRemoveClient()
+{
+    while (running_)
     {
-        std::cout << "Index: " << itr->get() << std::endl;
-        if (itr->get()->getFd() == fd)
+        auto data = delClientList_->fetch();
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto itr = clientList_.begin();
+        while (itr != clientList_.end())
         {
-
-            clientList_.erase(itr);
-            break;
+            if (itr->get()->getFd() == data)
+            {
+                std::cout << "Remove " << itr->get()->getFd() << std::endl;
+                clientList_.erase(itr);
+                break;
+            }
+            itr++;
         }
     }
-    mutex_.unlock();
-
-    // auto ind = std::find_if(clientList_.begin(), clientList_.end(), [&](std::shared_ptr<ClientHandler> ch)
-    //                         { return (ch->getFd() == fd); });
-    // std::cout << "Index: " << &ind << std::endl;
-    // clientList_.erase(ind);
-    // unlock
 }
 
 void TcpServer::doReceive()
@@ -120,14 +114,11 @@ void TcpServer::doReceive()
             return;
         }
 
-        // lock
-        std::shared_ptr<ClientHandler> clientHandler = std::make_shared<ClientHandler>(clientFd, std::bind(&TcpServer::removeClient, this, std::placeholders::_1));
-
-        // TcpServer::addClient(clientHandler);
-        mutex_.lock();
-        clientList_.push_back(clientHandler);
-        mutex_.unlock();
-        // unlock
+        std::shared_ptr<ClientHandler> clientHandler = std::make_shared<ClientHandler>(clientFd, delClientList_);
+        {
+            std::lock_guard<std::mutex> lock(mutex_);
+            clientList_.push_back(clientHandler);
+        }
     }
 };
 
@@ -136,7 +127,6 @@ void TcpServer::doSend()
     std::string msg = "Server send msg ";
     while (running_)
     {
-        // lock
         try
         {
             mutex_.lock();
@@ -145,7 +135,6 @@ void TcpServer::doSend()
                 it->doSend(msg);
             }
             mutex_.unlock();
-            // unlock
         }
         catch (std::exception &e)
         {
