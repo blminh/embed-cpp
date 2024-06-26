@@ -4,6 +4,7 @@
 #include <atomic>
 #include <thread>
 #include <mutex>
+#include <string>
 #include <sys/socket.h>
 
 #define DATASIZE 128
@@ -12,6 +13,7 @@
 class TcpClient
 {
 public:
+    TcpClient(std::string ip, int port);
     TcpClient();
     ~TcpClient();
 
@@ -26,6 +28,8 @@ private:
 
 private:
     int clientFd_;
+    int port_;
+    std::string ip_;
     std::atomic<bool> running_;
     std::thread senderThread_;
     std::thread receiverThread_;

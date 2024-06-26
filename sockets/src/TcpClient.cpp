@@ -7,9 +7,15 @@
 #include <arpa/inet.h>
 #include <future>
 
+TcpClient::TcpClient(std::string ip, int port) : running_{true}, ip_{ip}, port_{port}
+{
+    std::cout << "Constructor: " << ip << " - " << port << std::endl;
+}
+
 TcpClient::TcpClient() : running_{true}
 {
 }
+
 TcpClient::~TcpClient()
 {
     running_.store(false);
@@ -36,9 +42,11 @@ void TcpClient::start()
 
     sockaddr_in serverAddress;
     serverAddress.sin_family = AF_INET;
-    serverAddress.sin_port = htons(PORT);
+    serverAddress.sin_port = htons(port_);
 
-    if (inet_pton(AF_INET, "127.0.0.1", &serverAddress.sin_addr) <= 0)
+    char ip[sizeof(ip_) + 1] = {0};
+    snprintf(ip, sizeof(ip_), "%s", ip_.c_str());
+    if (inet_pton(AF_INET, ip, &serverAddress.sin_addr) <= 0)
     {
         std::cout << "Invalid address/ Address not supported" << std::endl;
         throw "Invalid address/ Address not supported";

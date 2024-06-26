@@ -1,10 +1,20 @@
 #include <thread>
 #include <chrono>
+#include <iostream>
+#include <string>
 #include "TcpClient.hpp"
 
-int main()
+int main(int argc, char *argv[])
 {
-    TcpClient tcpClient;
+    if (argc < 3)
+    {
+        std::cout << "Format input: ./client your_ip your_port" << std::endl;
+        return 0;
+    }
+    std::string ip(argv[1]);
+    int port = atoi(argv[2]);
+
+    TcpClient tcpClient(ip, port);
     tcpClient.start();
     tcpClient.sender();
     tcpClient.receiver();
