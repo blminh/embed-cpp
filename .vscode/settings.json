@@ -61,6 +61,8 @@
     "variant": "cpp",
     "future": "cpp",
     "shared_mutex": "cpp",
-    "cstring": "cpp"
-  }
+    "cstring": "cpp",
+    "fstream": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "enabled"
 }

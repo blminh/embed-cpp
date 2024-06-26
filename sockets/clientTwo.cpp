@@ -3,8 +3,80 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <fstream>
-#include <unistd.h>
+#include <string>
+#include <thread>
+#include <chrono>
+#include <future>
+
+#define DATASIZE 128
+
+int receivedData(int socket)
+{
+    char buffer[DATASIZE + 1] = {0};
+    int received = 0;
+    try
+    {
+        while (received < DATASIZE)
+        {
+            auto len = recv(socket, &buffer[received], DATASIZE - received, 0);
+            std::cout << "Leng data: " << len << std::endl;
+            if (len < 0)
+            {
+                std::cout << "Received data fail" << std::endl;
+                return -1;
+            }
+            else if (len == 0)
+            {
+                std::cout << "Socket is closed" << std::endl;
+                return -1;
+            }
+            received += len;
+            std::cout << "Message from server: " << buffer << std::endl;
+        }
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Received | " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+
+void receivedThread(int socket)
+{
+    std::thread receivedThread(
+        [socket]()
+        {
+            while (true)
+            {
+                int rd = receivedData(socket);
+                std::cout << "Received: " << rd << std::endl;
+                std::cout << "Received - socket: " << socket << std::endl;
+                if (rd <= 0)
+                {
+                    return;
+                }
+            }
+        });
+    receivedThread.join();
+}
+
+int sendData(int socket, char *data)
+{
+    int sent = 0;
+    while (sent < DATASIZE)
+    {
+        int len = send(socket, data + sent, DATASIZE - sent, 0);
+        if (len < 0)
+        {
+            std::cout << "Send fail!" << std::endl;
+            return -1;
+        }
+        sent += len;
+    }
+    std::cout << "Sent done!" << std::endl;
+    return 0;
+}
 
 int main()
 {
@@ -15,6 +87,7 @@ int main()
         std::cout << "Socket creation failed!" << std::endl;
         return -1;
     }
+
     // specifying the address
     sockaddr_in serverAddress;
     serverAddress.sin_family = AF_INET;
@@ -35,14 +108,23 @@ int main()
     }
 
     // sending data
-    const char *message = "Hello, server! I am Client 2.";
-    send(clientSocket, message, strlen(message), 0);
+    std::string message = "Hello, server! I am Client " + std::to_string(clientSocket);
+    char sMsg[DATASIZE + 1] = {0};
+    snprintf(sMsg, sizeof(sMsg), "%s", message.c_str());
+    sendData(clientSocket, sMsg);
 
-    // recv data from server
-    char buffer[1024] = {0};
-    // int valRead = read(clientSocket, buffer, 1024);
-    recv(clientSocket, buffer, sizeof(buffer), 0);
-    std::cout << "Message from server: " << buffer << std::endl;
+    // recv data from serverAddr
+    // receivedThread(clientSocket);
+
+    while (true)
+    {
+        std::future<int> status = std::async(std::launch::async, receivedData, clientSocket);
+        if (status.valid() && status.get() == -1)
+            break;
+        std::thread receivedThread(receivedData, clientSocket);
+        receivedThread.join();
+        // std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
 
     return 0;
 }
