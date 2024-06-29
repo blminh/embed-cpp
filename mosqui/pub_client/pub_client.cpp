@@ -12,11 +12,13 @@ static int run = -1;
 
 void handle_sigint(int signal)
 {
+    std::cout << "Catch signal: " << signal << std::endl;
     run = 0;
 }
 
 void on_connect(struct mosquitto *mosq, void *obj, int rc)
 {
+    std::cout << "rc: " << rc << std::endl;
     if (rc)
     {
         exit(1);
@@ -36,7 +38,7 @@ int main(int argc, char *argv[])
 {
     int rc;
     struct mosquitto *mosq = NULL;
-    int port = 8883; // atoi(argv[1]);
+    int port = 8883;
 
     mosquitto_lib_init();
     mosq = mosquitto_new("pub_client", true, NULL);
@@ -50,8 +52,7 @@ int main(int argc, char *argv[])
     mosquitto_disconnect_callback_set(mosq, on_disconnect);
     rc = mosquitto_connect(mosq, "neko-S451LA", port, 60);
 
-    // mosquitto_publish(mosq, NULL, "/abc", 20, "Hello from file!", 0, false);
-    mosquitto_publish(mosq, NULL, "/abc", 20, argv[1], 0, false);
+    mosquitto_publish(mosq, NULL, "/abc", 20, "Hello from pub_client!", 0, false);
 
     signal(SIGINT, handle_sigint);
 

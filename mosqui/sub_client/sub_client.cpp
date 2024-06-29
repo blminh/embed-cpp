@@ -23,7 +23,6 @@ void on_connect(struct mosquitto *mosq, void *obj, int rc)
     else
     {
         mosquitto_disconnect(mosq);
-        // mosquitto_subscribe(mosq, NULL, "/abc", 1);
     }
 }
 
@@ -32,9 +31,13 @@ void on_disconnect(struct mosquitto *mosq, void *obj, int rc)
     run = rc;
 }
 
+void on_subscribe(struct mosquitto *mosq, void *obj, int mid, int qos_count, const int *granted_qos)
+{
+    mosquitto_disconnect(mosq);
+}
+
 int on_message_callback(struct mosquitto *mosq, void *userdata, const struct mosquitto_message *message)
 {
-    std::cout << "Userdata: " << userdata << std::endl;
     std::cout << "Subscriber sub_client received message of topic: " << message->topic << " | Data: " << reinterpret_cast<char *>(message->payload) << "\n";
     return 0;
 }
@@ -64,6 +67,9 @@ int main(int argc, char *argv[])
     tls->pw_callback = NULL;
 
     mosquitto_connect_callback_set(mosq, on_connect);
+    mosquitto_subscribe_callback_set(mosq, on_subscribe);
+    mosquitto_disconnect_callback_set(mosq, on_disconnect);
+
     mosquitto_subscribe_callback(
         on_message_callback,
         NULL,
@@ -76,8 +82,6 @@ int main(int argc, char *argv[])
         true,
         NULL, NULL, NULL,
         tls);
-
-    mosquitto_disconnect_callback_set(mosq, on_disconnect);
 
     mosquitto_loop_forever(mosq, -1, 1);
 

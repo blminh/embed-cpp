@@ -1,267 +1,30 @@
-1719638424: New connection from 127.0.0.1:53450 on port 8883.
-1719638424: New client connected from 127.0.0.1:53450 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719638424: Client sub_client disconnected.
-1719638832: New connection from 127.0.0.1:44960 on port 8883.
-1719638832: New client connected from 127.0.0.1:44960 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719638832: Client sub_client disconnected.
-1719638952: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719639941: New connection from 127.0.0.1:43546 on port 8883.
-1719639941: New client connected from 127.0.0.1:43546 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719639941: Client sub_client disconnected.
-1719640030: New connection from 127.0.0.1:43964 on port 8883.
-1719640030: New client connected from 127.0.0.1:43964 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719640031: Outgoing messages are being dropped for client sub_client.
-1719640032: New connection from 127.0.0.1:60726 on port 8883.
-1719640032: New client connected from 127.0.0.1:60726 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719640032: Client pub_client disconnected.
-1719640048: Bad socket read/write on client sub_client: A TLS error occurred.
-1719640052: New connection from 127.0.0.1:56196 on port 8883.
-1719640052: New client connected from 127.0.0.1:56196 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719640054: Outgoing messages are being dropped for client sub_client.
-1719640055: New connection from 127.0.0.1:56204 on port 8883.
-1719640055: New client connected from 127.0.0.1:56204 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719640055: Client pub_client disconnected.
-1719640065: New connection from 127.0.0.1:60566 on port 8883.
-1719640065: New client connected from 127.0.0.1:60566 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719640065: Client pub_client disconnected.
-1719640851: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719642731: mosquitto version 2.0.18 starting
-1719642731: Config loaded from mosqui.conf.
-1719642731: Opening ipv4 listen socket on port 8883.
-1719642731: Opening ipv6 listen socket on port 8883.
-1719642731: mosquitto version 2.0.18 running
-1719642749: New connection from 127.0.0.1:51068 on port 8883.
-1719642749: New client connected from 127.0.0.1:51068 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719642750: Outgoing messages are being dropped for client sub_client.
-1719642753: New connection from 127.0.0.1:52778 on port 8883.
-1719642753: New client connected from 127.0.0.1:52778 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719642753: Client pub_client disconnected.
-1719642770: New connection from 127.0.0.1:57794 on port 8883.
-1719642770: New client connected from 127.0.0.1:57794 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719642770: Client pub_client disconnected.
-1719642873: Bad socket read/write on client sub_client: A TLS error occurred.
-1719642877: New connection from 127.0.0.1:57668 on port 8883.
-1719642877: New client connected from 127.0.0.1:57668 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719642879: New connection from 127.0.0.1:57682 on port 8883.
-1719642879: New client connected from 127.0.0.1:57682 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719642879: Client pub_client disconnected.
-1719642879: Outgoing messages are being dropped for client sub_client.
-1719642897: New connection from 127.0.0.1:38736 on port 8883.
-1719642897: New client connected from 127.0.0.1:38736 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719642897: Client pub_client disconnected.
-1719642921: Bad socket read/write on client sub_client: A TLS error occurred.
-1719642922: mosquitto version 2.0.18 terminating
-1719642922: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719662951: mosquitto version 2.0.18 starting
-1719662951: Config loaded from mosqui.conf.
-1719662951: Opening ipv4 listen socket on port 8883.
-1719662951: Opening ipv6 listen socket on port 8883.
-1719662951: mosquitto version 2.0.18 running
-1719662971: New connection from 127.0.0.1:51460 on port 8883.
-1719662971: New client connected from 127.0.0.1:51460 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719662973: Outgoing messages are being dropped for client sub_client.
-1719662980: New connection from 127.0.0.1:60532 on port 8883.
-1719662980: New client connected from 127.0.0.1:60532 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662980: Client pub_client disconnected.
-1719662989: New connection from 127.0.0.1:37802 on port 8883.
-1719662989: New client connected from 127.0.0.1:37802 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662989: Client pub_client disconnected.
-1719662989: New connection from 127.0.0.1:37810 on port 8883.
-1719662990: New client connected from 127.0.0.1:37810 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662990: Client pub_client disconnected.
-1719662990: New connection from 127.0.0.1:37822 on port 8883.
-1719662990: New client connected from 127.0.0.1:37822 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662990: Client pub_client disconnected.
-1719662990: New connection from 127.0.0.1:37834 on port 8883.
-1719662990: New client connected from 127.0.0.1:37834 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662990: Client pub_client disconnected.
-1719662991: New connection from 127.0.0.1:37842 on port 8883.
-1719662991: New client connected from 127.0.0.1:37842 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662991: Client pub_client disconnected.
-1719662991: New connection from 127.0.0.1:37852 on port 8883.
-1719662991: New client connected from 127.0.0.1:37852 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662991: Client pub_client disconnected.
-1719662991: New connection from 127.0.0.1:37856 on port 8883.
-1719662991: New client connected from 127.0.0.1:37856 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662991: Client pub_client disconnected.
-1719662992: New connection from 127.0.0.1:37872 on port 8883.
-1719662992: New client connected from 127.0.0.1:37872 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719662992: Client pub_client disconnected.
-1719662993: Bad socket read/write on client sub_client: A TLS error occurred.
-1719663009: New connection from 127.0.0.1:59922 on port 8883.
-1719663009: New client connected from 127.0.0.1:59922 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719663011: Outgoing messages are being dropped for client sub_client.
-1719663012: Bad socket read/write on client sub_client: A TLS error occurred.
-1719663016: New connection from 127.0.0.1:49234 on port 8883.
-1719663016: New client connected from 127.0.0.1:49234 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719663016: Client sub_client disconnected.
-1719663022: New connection from 127.0.0.1:49236 on port 8883.
-1719663022: New client connected from 127.0.0.1:49236 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719663022: Client pub_client disconnected.
-1719664316: New connection from 127.0.0.1:57252 on port 8883.
-1719664316: New client connected from 127.0.0.1:57252 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719664316: Client sub_client disconnected.
-1719664325: New connection from 127.0.0.1:37998 on port 8883.
-1719664325: New client connected from 127.0.0.1:37998 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719664325: Client sub_client disconnected.
-1719664340: New connection from 127.0.0.1:59406 on port 8883.
-1719664340: New client connected from 127.0.0.1:59406 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719664340: Client sub_client disconnected.
-1719664752: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719664906: New connection from 127.0.0.1:38908 on port 8883.
-1719664908: New connection from 127.0.0.1:38914 on port 8883.
-1719664908: New client connected from 127.0.0.1:38914 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719664908: Client pub_client disconnected.
-1719664911: Client <unknown> disconnected: Protocol error.
-1719664942: New connection from 127.0.0.1:54246 on port 8883.
-1719664944: New connection from 127.0.0.1:47480 on port 8883.
-1719664944: New client connected from 127.0.0.1:47480 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719664944: Client pub_client disconnected.
-1719664948: Client <unknown> disconnected: Protocol error.
-1719664952: New connection from 127.0.0.1:38420 on port 8883.
-1719664956: New connection from 127.0.0.1:38426 on port 8883.
-1719664956: New client connected from 127.0.0.1:38426 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719664956: Client pub_client disconnected.
-1719664957: Client <unknown> disconnected: Protocol error.
-1719665058: New connection from 127.0.0.1:40194 on port 8883.
-1719665060: New connection from 127.0.0.1:40196 on port 8883.
-1719665060: New client connected from 127.0.0.1:40196 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719665060: Client pub_client disconnected.
-1719665062: Client <unknown> disconnected: Protocol error.
-1719665099: New connection from 127.0.0.1:39186 on port 8883.
-1719665099: New client connected from 127.0.0.1:39186 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719665141: New connection from 127.0.0.1:50008 on port 8883.
-1719665141: New client connected from 127.0.0.1:50008 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719665141: Client sub_client disconnected.
-1719665184: Client pub_client disconnected: Protocol error.
-1719666352: New connection from 127.0.0.1:38802 on port 8883.
-1719666352: New client connected from 127.0.0.1:38802 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719666353: New connection from 127.0.0.1:43564 on port 8883.
-1719666354: New client connected from 127.0.0.1:43564 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666356: Bad socket read/write on client sub_client: A TLS error occurred.
-1719666388: Client pub_client disconnected: Protocol error.
-1719666393: New connection from 127.0.0.1:59018 on port 8883.
-1719666393: New client connected from 127.0.0.1:59018 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719666394: New connection from 127.0.0.1:59020 on port 8883.
-1719666394: New client connected from 127.0.0.1:59020 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666397: Bad socket read/write on client sub_client: A TLS error occurred.
-1719666398: Client pub_client disconnected: Protocol error.
-1719666402: New connection from 127.0.0.1:45208 on port 8883.
-1719666402: New client connected from 127.0.0.1:45208 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719666404: New connection from 127.0.0.1:45218 on port 8883.
-1719666404: New client connected from 127.0.0.1:45218 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666404: Client pub_client disconnected.
-1719666408: New connection from 127.0.0.1:45228 on port 8883.
-1719666408: New client connected from 127.0.0.1:45228 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666408: Client pub_client disconnected.
-1719666408: New connection from 127.0.0.1:45236 on port 8883.
-1719666408: New client connected from 127.0.0.1:45236 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666408: Client pub_client disconnected.
-1719666409: New connection from 127.0.0.1:45244 on port 8883.
-1719666409: New client connected from 127.0.0.1:45244 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666409: Client pub_client disconnected.
-1719666409: New connection from 127.0.0.1:45250 on port 8883.
-1719666409: New client connected from 127.0.0.1:45250 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666409: Client pub_client disconnected.
-1719666410: New connection from 127.0.0.1:45262 on port 8883.
-1719666410: New client connected from 127.0.0.1:45262 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666410: Client pub_client disconnected.
-1719666410: New connection from 127.0.0.1:45270 on port 8883.
-1719666410: New client connected from 127.0.0.1:45270 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666410: Client pub_client disconnected.
-1719666410: New connection from 127.0.0.1:45286 on port 8883.
-1719666410: New client connected from 127.0.0.1:45286 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666410: Client pub_client disconnected.
-1719666410: New connection from 127.0.0.1:45288 on port 8883.
-1719666410: New client connected from 127.0.0.1:45288 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666411: Client pub_client disconnected.
-1719666411: New connection from 127.0.0.1:45292 on port 8883.
-1719666411: New client connected from 127.0.0.1:45292 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666411: Client pub_client disconnected.
-1719666533: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719666533: Client sub_client closed its connection.
-1719666538: New connection from 127.0.0.1:36878 on port 8883.
-1719666538: New client connected from 127.0.0.1:36878 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719666540: New connection from 127.0.0.1:36882 on port 8883.
-1719666540: New client connected from 127.0.0.1:36882 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719666540: Client pub_client disconnected.
-1719666543: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719666543: Client sub_client closed its connection.
-1719666553: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719668354: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719669519: mosquitto version 2.0.18 terminating
-1719669519: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719669521: mosquitto version 2.0.18 starting
-1719669521: Config loaded from mosqui.conf.
-1719669521: Opening ipv4 listen socket on port 8883.
-1719669521: Opening ipv6 listen socket on port 8883.
-1719669521: mosquitto version 2.0.18 running
-1719669800: New connection from 127.0.0.1:57228 on port 8883.
-1719669800: New client connected from 127.0.0.1:57228 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719669805: New connection from 127.0.0.1:42464 on port 8883.
-1719669805: New client connected from 127.0.0.1:42464 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719669805: Client pub_client disconnected.
-1719669807: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719669807: Client sub_client closed its connection.
-1719669843: New connection from 127.0.0.1:50802 on port 8883.
-1719669843: New client connected from 127.0.0.1:50802 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719669847: New connection from 127.0.0.1:50808 on port 8883.
-1719669847: New client connected from 127.0.0.1:50808 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719669847: Client pub_client disconnected.
-1719669848: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719669848: Client sub_client closed its connection.
-1719669878: New connection from 127.0.0.1:49928 on port 8883.
-1719669878: New client connected from 127.0.0.1:49928 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719669879: New connection from 127.0.0.1:49930 on port 8883.
-1719669879: New client connected from 127.0.0.1:49930 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719669880: Client pub_client disconnected.
-1719669881: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719669881: Client sub_client closed its connection.
-1719669905: New connection from 127.0.0.1:51198 on port 8883.
-1719669905: New client connected from 127.0.0.1:51198 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719669907: New connection from 127.0.0.1:51214 on port 8883.
-1719669907: New client connected from 127.0.0.1:51214 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719669907: Client pub_client disconnected.
-1719669910: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719669910: Client sub_client closed its connection.
-1719670313: New connection from 127.0.0.1:52210 on port 8883.
-1719670313: New client connected from 127.0.0.1:52210 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719670316: New connection from 127.0.0.1:52220 on port 8883.
-1719670316: New client connected from 127.0.0.1:52220 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719670316: Client pub_client disconnected.
-1719670317: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719670317: Client sub_client closed its connection.
-1719670345: New connection from 127.0.0.1:49362 on port 8883.
-1719670345: New client connected from 127.0.0.1:49362 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719670346: New connection from 127.0.0.1:49372 on port 8883.
-1719670346: New client connected from 127.0.0.1:49372 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719670346: Client pub_client disconnected.
-1719670364: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719670364: Client sub_client closed its connection.
-1719670955: New connection from 127.0.0.1:59838 on port 8883.
-1719670955: New client connected from 127.0.0.1:59838 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719670958: New connection from 127.0.0.1:59846 on port 8883.
-1719670958: New client connected from 127.0.0.1:59846 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719670958: Client pub_client disconnected.
-1719670959: New connection from 127.0.0.1:59858 on port 8883.
-1719670959: New client connected from 127.0.0.1:59858 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719670959: Client pub_client disconnected.
-1719670960: New connection from 127.0.0.1:59866 on port 8883.
-1719670960: New client connected from 127.0.0.1:59866 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719670960: Client pub_client disconnected.
-1719670960: New connection from 127.0.0.1:59870 on port 8883.
-1719670960: New client connected from 127.0.0.1:59870 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719670960: Client pub_client disconnected.
-1719670961: New connection from 127.0.0.1:59878 on port 8883.
-1719670961: New client connected from 127.0.0.1:59878 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719670961: Client pub_client disconnected.
-1719670964: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719670964: Client sub_client closed its connection.
-1719671130: New connection from 127.0.0.1:49468 on port 8883.
-1719671130: New client connected from 127.0.0.1:49468 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719671140: New connection from 127.0.0.1:44696 on port 8883.
-1719671140: New client connected from 127.0.0.1:44696 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719671140: Client pub_client disconnected.
-1719671146: New connection from 127.0.0.1:38656 on port 8883.
-1719671146: New client connected from 127.0.0.1:38656 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719671146: Client pub_client disconnected.
+1719671568: mosquitto version 2.0.18 starting
+1719671568: Config loaded from mosqui.conf.
+1719671568: Opening ipv4 listen socket on port 8883.
+1719671568: Opening ipv6 listen socket on port 8883.
+1719671568: mosquitto version 2.0.18 running
+1719671593: New connection from 127.0.0.1:46054 on port 8883.
+1719671593: New client connected from 127.0.0.1:46054 as sub_client (p2, c1, k60, u'neko-S451LA').
+1719671595: New connection from 127.0.0.1:46064 on port 8883.
+1719671597: Client <unknown> disconnected: Protocol error.
+1719671602: New connection from 127.0.0.1:58548 on port 8883.
+1719671602: New client connected from 127.0.0.1:58548 as pub_client (p2, c1, k60, u'neko-S451LA').
+1719671602: Client pub_client disconnected.
+1719671762: New connection from 127.0.0.1:34396 on port 8883.
+1719671763: Client <unknown> disconnected: Protocol error.
+1719671785: New connection from 127.0.0.1:49256 on port 8883.
+1719671786: Client <unknown> disconnected: Protocol error.
+1719671798: New connection from 127.0.0.1:53380 on port 8883.
+1719671799: Client <unknown> disconnected: Protocol error.
+1719671808: New connection from 127.0.0.1:49574 on port 8883.
+1719671809: Client <unknown> disconnected: Protocol error.
+1719671852: New connection from 127.0.0.1:38094 on port 8883.
+1719671853: Client <unknown> disconnected: Protocol error.
+1719671863: New connection from 127.0.0.1:45314 on port 8883.
+1719671863: New client connected from 127.0.0.1:45314 as pub_client (p2, c1, k60, u'neko-S451LA').
+1719671863: Client pub_client disconnected.
+1719671933: New connection from 127.0.0.1:53998 on port 8883.
+1719671933: New client connected from 127.0.0.1:53998 as pub_client (p2, c1, k60, u'neko-S451LA').
+1719671933: Client pub_client disconnected.
+1719672282: New connection from 127.0.0.1:58014 on port 8883.
+1719672283: Client <unknown> disconnected: Protocol error.
