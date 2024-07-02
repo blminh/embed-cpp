@@ -16,14 +16,14 @@ add_executable(${PROJECT_NAME}
 
 configure_file("${PROJECT_SOURCE_DIR}/config.json" "${PROJECT_BINARY_DIR}/config.json" COPYONLY)
 
-add_subdirectory( utils/json )
+# add_subdirectory( utils/json )
 
 target_link_libraries(${PROJECT_NAME}
     mosquitto
     ssl
     crypto
     pthread
-    nlohmann_json
+    # nlohmann_json
 )
 
 file(COPY  "${PROJECT_SOURCE_DIR}/ca_certificates" DESTINATION "${PROJECT_BINARY_DIR}")

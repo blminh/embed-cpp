@@ -1,11 +1,14 @@
 # Compile source code
 
-```sh
+```
+git submodule init
+git submodule update
+
+go to any folder of exercise:
 mkdir build
-cd build
 cmake ..
-cmake --build .
-./app
+make
+
 ```
 
 # export environment in terminal. Dynamic lib path
