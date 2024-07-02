@@ -1,16 +1,10 @@
 cmake_minimum_required(VERSION 3.9)
 project(embed_cpp)
-set(CMAKE_BUILD_TYPE Release)
 
-# include_directories("${PROJECT_SOURCE_DIR}/includes")
-# file(GLOB SOURCES "src/*.cpp")
-# add_library(applib SHARED ${SOURCES})
-# add_executable(app ${SOURCES} main.cpp)
-# target_link_libraries(app applib)
+add_executable(${PROJECT_NAME} main.cpp)
 
-include_directories(${PROJECT_SOURCE_DIR}/includes)
-file(GLOB SOURCES "src/*.cpp")
-add_library(applib SHARED ${SOURCES})
-# add_library(applib SHARED src/foo.cpp src/todo.cpp)
-add_executable(app main.cpp)
-target_link_libraries(app applib)
+configure_file("${PROJECT_SOURCE_DIR}/config.json" "${PROJECT_BINARY_DIR}/config.json" COPYONLY)
+
+add_subdirectory( utils/json )
+
+target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json)

@@ -14,9 +14,18 @@ add_executable(${PROJECT_NAME}
     "sub_client.cpp"
 )
 
+configure_file("${PROJECT_SOURCE_DIR}/config.json" "${PROJECT_BINARY_DIR}/config.json" COPYONLY)
+
+add_subdirectory( utils/json )
+
 target_link_libraries(${PROJECT_NAME}
     mosquitto
     ssl
     crypto
     pthread
+    nlohmann_json
 )
+
+file(COPY "${PROJECT_SOURCE_DIR}/ca_certificates/ca.crt" DESTINATION "${PROJECT_BINARY_DIR}")
+file(COPY "${PROJECT_SOURCE_DIR}/certs/client.crt" DESTINATION "${PROJECT_BINARY_DIR}")
+file(COPY "${PROJECT_SOURCE_DIR}/certs/client.key" DESTINATION "${PROJECT_BINARY_DIR}")
