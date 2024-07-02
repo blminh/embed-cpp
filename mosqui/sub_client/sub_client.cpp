@@ -59,6 +59,7 @@ struct Client
 
 Client readConfig(std::string filepath)
 {
+    signal(SIGINT, handle_sigint);
     std::ifstream conf(filepath);
     nlohmann::json confJson = nlohmann::json::parse(conf);
 
@@ -95,12 +96,20 @@ int main(int argc, char *argv[])
     // std::cout << client.port_ << std::endl;
     // std::cout << "Field: " << cafile_ << "| Type: " << typeid(cafile_).name() << std::endl;
 
-    std::ifstream conf("config.json");
-    nlohmann::json confJson = nlohmann::json::parse(conf);
-    std::string cafile_ = confJson["ca_file"];
+    try
+    {
+        std::ifstream conf("config.json");
+        nlohmann::json confJson = nlohmann::json::parse(conf);
+        std::string cafile_ = confJson["ca_file"];
+        std::cout << "Field: " << cafile_ << "| Type: " << typeid(cafile_).name() << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
 
     libmosquitto_tls *tls;
-    snprintf(tls->cafile, sizeof(cafile_) + 1, "%s", cafile_.c_str());
+    snprintf(tls->cafile, sizeof("ca.crt") + 1, "%s", "ca.crt");
     tls->capath = NULL;
     snprintf(tls->certfile, sizeof("client.crt") + 1, "%s", "client.crt");
     snprintf(tls->keyfile, sizeof("client.key") + 1, "%s", "client.key");
@@ -108,7 +117,6 @@ int main(int argc, char *argv[])
     tls->ciphers = NULL;
     tls->pw_callback = NULL;
     snprintf(tls->tls_version, sizeof("tlsv1.2") + 1, "%s", "tlsv1.2");
-    signal(SIGINT, handle_sigint);
 
     mosquitto_connect_callback_set(mosq, on_connect);
     mosquitto_subscribe_callback_set(mosq, on_subscribe);

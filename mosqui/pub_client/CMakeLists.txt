@@ -23,7 +23,7 @@ target_link_libraries(${PROJECT_NAME}
     ssl
     crypto
     pthread
-    PRIVATE nlohmann_json
+    nlohmann_json
 )
 
 file(COPY  "${PROJECT_SOURCE_DIR}/ca_certificates" DESTINATION "${PROJECT_BINARY_DIR}")

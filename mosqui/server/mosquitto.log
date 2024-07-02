@@ -70,3 +70,5 @@
 1719889455: Client pub_client disconnected: Protocol error.
 1719889756: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
 1719889756: Client sub_client closed its connection.
+1719890995: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719892796: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
