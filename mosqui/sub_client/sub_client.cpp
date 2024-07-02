@@ -100,12 +100,14 @@ int main(int argc, char *argv[])
     {
         std::ifstream conf("config.json");
         nlohmann::json confJson = nlohmann::json::parse(conf);
-        std::string cafile_ = confJson["ca_file"];
-        std::cout << "Field: " << cafile_ << "| Type: " << typeid(cafile_).name() << std::endl;
+        std::cout << confJson << std::endl;
+        std::string uCafile_ = confJson["u_ca_file"];
+        std::cout << "Field: " << uCafile_ << "| Type: " << typeid(uCafile_).name() << std::endl;
     }
-    catch (std::exception &e)
+    catch (const nlohmann::json::exception &e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << "message: " << e.what() << '\n'
+                  << "exception id: " << e.id << std::endl;
     }
 
     libmosquitto_tls *tls;
