@@ -72,3 +72,78 @@
 1719889756: Client sub_client closed its connection.
 1719890995: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
 1719892796: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719894597: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719896398: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719898199: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719900000: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719901801: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719903602: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719905403: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719907204: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719909005: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719910806: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719912607: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719914408: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719916209: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719918010: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719919811: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719921612: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719923413: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719925214: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719927015: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719928816: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719930617: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1719930925: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930928: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930929: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930930: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930931: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930932: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930932: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930933: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930934: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930935: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930936: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930936: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930937: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930938: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930939: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930940: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930941: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930942: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930943: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930944: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930945: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930946: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930947: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930948: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930949: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930950: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930951: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930952: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930953: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930954: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930955: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930956: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930957: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930958: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930959: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930960: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930961: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930962: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930963: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930964: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930965: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930966: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930967: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930968: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930969: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930970: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719930971: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1719931054: New connection from 127.0.0.1:39496 on port 8883.
+1719931054: New client connected from 127.0.0.1:39496 as sub_client (p2, c1, k60, u'neko-S451LA').
+1719931067: New connection from 127.0.0.1:38146 on port 8883.
+1719931070: New client connected from 127.0.0.1:38146 as pub_client (p2, c1, k60, u'neko-S451LA').
+1719931071: Client pub_client disconnected: Protocol error.
+1719931075: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
+1719931075: Client sub_client closed its connection.

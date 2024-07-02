@@ -10,20 +10,28 @@ link_directories(
     ${PROJECT_SOURCE_DIR}/lib
 )
 
+configure_file("${PROJECT_SOURCE_DIR}/config.json" "${PROJECT_BINARY_DIR}/config.json" COPYONLY)
+
+add_subdirectory(
+    utils/json
+)
+
+# add_subdirectory(
+#     utils/mosquitto
+# )
+
+# find_package(mosquitto REQUIRED)
+
 add_executable(${PROJECT_NAME}
     "sub_client.cpp"
 )
 
-configure_file("${PROJECT_SOURCE_DIR}/config.json" "${PROJECT_BINARY_DIR}/config.json" COPYONLY)
-
-add_subdirectory( utils/json )
-
 target_link_libraries(${PROJECT_NAME}
-    mosquitto
     ssl
     crypto
     pthread
     nlohmann_json
+    mosquitto
 )
 
 file(COPY "${PROJECT_SOURCE_DIR}/ca_certificates/ca.crt" DESTINATION "${PROJECT_BINARY_DIR}")

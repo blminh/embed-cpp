@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
     struct mosquitto *mosq = NULL;
     int port = 8883;
 
-    signal(SIGINT, handle_sigint);
+    // signal(SIGINT, handle_sigint);
     mosquitto_lib_init();
 
     mosq = mosquitto_new("sub_client", true, NULL);
