@@ -59,7 +59,6 @@ struct Client
 
 Client readConfig(std::string filepath)
 {
-    signal(SIGINT, handle_sigint);
     std::ifstream conf(filepath);
     nlohmann::json confJson = nlohmann::json::parse(conf);
 
@@ -79,6 +78,7 @@ int main(int argc, char *argv[])
     struct mosquitto *mosq = NULL;
     int port = 8883;
 
+    signal(SIGINT, handle_sigint);
     mosquitto_lib_init();
 
     mosq = mosquitto_new("sub_client", true, NULL);
