@@ -45,7 +45,7 @@ void TcpClient::start()
     serverAddress.sin_port = htons(port_);
 
     char ip[sizeof(ip_) + 1] = {0};
-    snprintf(ip, sizeof(ip_), "%s", ip_.c_str());
+    snprintf(ip, sizeof(ip), "%s", ip_.c_str());
     if (inet_pton(AF_INET, ip, &serverAddress.sin_addr) <= 0)
     {
         std::cout << "Invalid address/ Address not supported" << std::endl;

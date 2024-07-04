@@ -4,5 +4,6 @@
   "key_file": "client.key",
   "tls_version": "tlsv1.2",
   "host": "neko-S451LA",
-  "port": "8883"
+  "port": "8883",
+  "topic": ["home", "living_room"]
 }

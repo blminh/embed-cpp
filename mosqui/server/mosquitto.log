@@ -1,160 +1,28 @@
-1719829422: New connection from 127.0.0.1:39726 on port 8883.
-1719829432: New client connected from 127.0.0.1:39726 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719829449: Client pub_client disconnected: Protocol error.
-1719829534: New connection from 127.0.0.1:39222 on port 8883.
-1719829544: New client connected from 127.0.0.1:39222 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719829547: Client pub_client disconnected: Protocol error.
-1719829599: New connection from 127.0.0.1:59736 on port 8883.
-1719829609: New client connected from 127.0.0.1:59736 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719829612: Client pub_client disconnected: Protocol error.
-1719829737: New connection from 127.0.0.1:53056 on port 8883.
-1719829740: Client <unknown> disconnected: Protocol error.
-1719829759: New connection from 127.0.0.1:53170 on port 8883.
-1719829762: New client connected from 127.0.0.1:53170 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719829775: Client pub_client disconnected.
-1719829877: New connection from 127.0.0.1:60572 on port 8883.
-1719829877: New client connected from 127.0.0.1:60572 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719829881: New connection from 127.0.0.1:60588 on port 8883.
-1719829884: New client connected from 127.0.0.1:60588 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719829896: Client pub_client disconnected.
-1719829971: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719829971: Client sub_client closed its connection.
-1719830000: New connection from 127.0.0.1:51002 on port 8883.
-1719830003: New client connected from 127.0.0.1:51002 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719830005: Client pub_client disconnected: Protocol error.
-1719830109: New connection from 127.0.0.1:51128 on port 8883.
-1719830112: New client connected from 127.0.0.1:51128 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719830115: Client pub_client disconnected: Protocol error.
-1719830134: New connection from 127.0.0.1:41264 on port 8883.
-1719830134: New client connected from 127.0.0.1:41264 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719830136: New connection from 127.0.0.1:41274 on port 8883.
-1719830139: New client connected from 127.0.0.1:41274 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719830142: Client pub_client disconnected: Protocol error.
-1719830144: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719830144: Client sub_client closed its connection.
-1719831075: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719832876: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719834677: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719836478: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719838279: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719840080: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719841881: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719843682: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719845483: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719847239: Reloading config.
-1719851208: mosquitto version 2.0.18 starting
-1719851208: Config loaded from mosqui.conf.
-1719851208: Opening ipv4 listen socket on port 8883.
-1719851208: Opening ipv6 listen socket on port 8883.
-1719851208: mosquitto version 2.0.18 running
-1719853008: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719853616: New connection from 127.0.0.1:47922 on port 8883.
-1719853616: New client connected from 127.0.0.1:47922 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719853620: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719853620: Client sub_client closed its connection.
-1719854528: New connection from 127.0.0.1:46592 on port 8883.
-1719854528: New client connected from 127.0.0.1:46592 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719854532: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719854532: Client sub_client closed its connection.
-1719854809: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719855549: Reloading config.
-1719889195: mosquitto version 2.0.18 starting
-1719889195: Config loaded from mosqui.conf.
-1719889195: Opening ipv4 listen socket on port 8883.
-1719889195: Opening ipv6 listen socket on port 8883.
-1719889195: mosquitto version 2.0.18 running
-1719889439: New connection from 127.0.0.1:33032 on port 8883.
-1719889439: New client connected from 127.0.0.1:33032 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719889452: New connection from 127.0.0.1:44006 on port 8883.
-1719889455: New client connected from 127.0.0.1:44006 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719889455: Client pub_client disconnected: Protocol error.
-1719889756: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719889756: Client sub_client closed its connection.
-1719890995: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719892796: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719894597: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719896398: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719898199: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719900000: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719901801: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719903602: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719905403: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719907204: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719909005: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719910806: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719912607: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719914408: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719916209: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719918010: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719919811: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719921612: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719923413: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719925214: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719927015: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719928816: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719930617: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719930925: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930928: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930929: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930930: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930931: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930932: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930932: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930933: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930934: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930935: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930936: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930936: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930937: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930938: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930939: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930940: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930941: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930942: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930943: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930944: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930945: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930946: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930947: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930948: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930949: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930950: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930951: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930952: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930953: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930954: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930955: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930956: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930957: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930958: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930959: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930960: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930961: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930962: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930963: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930964: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930965: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930966: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930967: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930968: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930969: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930970: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719930971: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719931054: New connection from 127.0.0.1:39496 on port 8883.
-1719931054: New client connected from 127.0.0.1:39496 as sub_client (p2, c1, k60, u'neko-S451LA').
-1719931067: New connection from 127.0.0.1:38146 on port 8883.
-1719931070: New client connected from 127.0.0.1:38146 as pub_client (p2, c1, k60, u'neko-S451LA').
-1719931071: Client pub_client disconnected: Protocol error.
-1719931075: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
-1719931075: Client sub_client closed its connection.
-1719932418: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719933309: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719933310: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719933311: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719933312: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719933313: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719933314: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719933315: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1719934219: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719936020: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
-1719937821: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1720109201: mosquitto version 2.0.18 starting
+1720109201: Config loaded from mosqui.conf.
+1720109201: Opening ipv4 listen socket on port 8883.
+1720109201: Opening ipv6 listen socket on port 8883.
+1720109201: Error: Unable to load server key file "certs/server.key". Check keyfile.
+1720109201: OpenSSL Error[0]: error:8000000D:system library::Permission denied
+1720109201: OpenSSL Error[1]: error:10080002:BIO routines::system lib
+1720109201: OpenSSL Error[2]: error:0A080002:SSL routines::system lib
+1720109247: mosquitto version 2.0.18 starting
+1720109247: Config loaded from mosqui.conf.
+1720109247: Opening ipv4 listen socket on port 8883.
+1720109247: Opening ipv6 listen socket on port 8883.
+1720109247: mosquitto version 2.0.18 running
+1720109254: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1720109407: New connection from 127.0.0.1:45036 on port 8883.
+1720109410: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
+1720109410: Client <unknown> disconnected: Protocol error.
+1720109663: New connection from 127.0.0.1:45620 on port 8883.
+1720109665: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
+1720109665: Client <unknown> disconnected: Protocol error.
+1720109935: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1720109941: New connection from 127.0.0.1:43904 on port 8883.
+1720109943: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
+1720109943: Client <unknown> disconnected: Protocol error.
+1720110012: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1720110016: New connection from 127.0.0.1:59802 on port 8883.
+1720110018: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
+1720110018: Client <unknown> disconnected: Protocol error.

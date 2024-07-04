@@ -1,6 +1,6 @@
-[submodule "mosqui/sub_client/utils/mosquitto"]
-	path = mosqui/sub_client/utils/mosquitto
-	url = https://github.com/eclipse/mosquitto.git
-[submodule "mosqui/sub_client/utils/json"]
-	path = mosqui/sub_client/utils/json
+[submodule "mosqui/lib/json"]
+	path = mosqui/lib/json
 	url = https://github.com/nlohmann/json.git
+[submodule "mosqui/lib/mosquitto"]
+	path = mosqui/lib/mosquitto
+	url = https://github.com/eclipse/mosquitto.git
