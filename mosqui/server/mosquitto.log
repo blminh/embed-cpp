@@ -1,28 +1,28 @@
-1720109201: mosquitto version 2.0.18 starting
-1720109201: Config loaded from mosqui.conf.
-1720109201: Opening ipv4 listen socket on port 8883.
-1720109201: Opening ipv6 listen socket on port 8883.
-1720109201: Error: Unable to load server key file "certs/server.key". Check keyfile.
-1720109201: OpenSSL Error[0]: error:8000000D:system library::Permission denied
-1720109201: OpenSSL Error[1]: error:10080002:BIO routines::system lib
-1720109201: OpenSSL Error[2]: error:0A080002:SSL routines::system lib
-1720109247: mosquitto version 2.0.18 starting
-1720109247: Config loaded from mosqui.conf.
-1720109247: Opening ipv4 listen socket on port 8883.
-1720109247: Opening ipv6 listen socket on port 8883.
-1720109247: mosquitto version 2.0.18 running
-1720109254: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1720109407: New connection from 127.0.0.1:45036 on port 8883.
-1720109410: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
-1720109410: Client <unknown> disconnected: Protocol error.
-1720109663: New connection from 127.0.0.1:45620 on port 8883.
-1720109665: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
-1720109665: Client <unknown> disconnected: Protocol error.
-1720109935: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1720109941: New connection from 127.0.0.1:43904 on port 8883.
-1720109943: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
-1720109943: Client <unknown> disconnected: Protocol error.
-1720110012: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
-1720110016: New connection from 127.0.0.1:59802 on port 8883.
-1720110018: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
-1720110018: Client <unknown> disconnected: Protocol error.
+1720110392: mosquitto version 2.0.18 terminating
+1720110392: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1720110393: mosquitto version 2.0.18 starting
+1720110393: Config loaded from mosqui.conf.
+1720110393: Opening ipv4 listen socket on port 8883.
+1720110393: Opening ipv6 listen socket on port 8883.
+1720110393: mosquitto version 2.0.18 running
+1720110405: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1720111126: New connection from 127.0.0.1:39100 on port 8883.
+1720111129: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
+1720111129: Client <unknown> disconnected: Protocol error.
+1720111206: New connection from 127.0.0.1:53556 on port 8883.
+1720111209: OpenSSL Error[0]: error:0A000086:SSL routines::certificate verify failed
+1720111209: Client <unknown> disconnected: Protocol error.
+1720111581: mosquitto version 2.0.18 terminating
+1720111581: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1720111590: mosquitto version 2.0.18 starting
+1720111590: Config loaded from mosqui.conf.
+1720111590: Opening ipv4 listen socket on port 8883.
+1720111590: Opening ipv6 listen socket on port 8883.
+1720111590: mosquitto version 2.0.18 running
+1720111597: Client connection from 127.0.0.1 failed: error:0A00010B:SSL routines::wrong version number.
+1720111601: New connection from 127.0.0.1:52854 on port 8883.
+1720111601: New client connected from 127.0.0.1:52854 as zxc (p2, c1, k60, u'neko-S451LA').
+1720111601: Client zxc disconnected.
+1720111673: New connection from 127.0.0.1:59236 on port 8883.
+1720111673: New client connected from 127.0.0.1:59236 as zxc (p2, c1, k60, u'neko-S451LA').
+1720111673: Client zxc disconnected.
