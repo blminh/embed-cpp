@@ -9,6 +9,9 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <vector>
+#include <fstream>
+#include <nlohmann/json.hpp>
 
 static int run = -1;
 
@@ -21,14 +24,9 @@ void handle_sigint(int signal)
 
 void on_connect(struct mosquitto *mosq, void *obj, int rc)
 {
-    std::cout << "rc: " << rc << std::endl;
-    if (rc)
+    if (rc == 0)
     {
         exit(1);
-    }
-    else
-    {
-        mosquitto_disconnect(mosq);
     }
 }
 
@@ -44,9 +42,6 @@ bool check(int val)
     return false;
 }
 
-#include <vector>
-#include <fstream>
-#include <nlohmann/json.hpp>
 struct Client
 {
     std::string cafile_;
@@ -96,25 +91,24 @@ int main(int argc, char *argv[])
     }
 
     Client client = readConfig("config.json");
-    std::cout << client.tlsVersion_ << std::endl;
 
-    int sizeTlsVersion = sizeof(client.tlsVersion_) + 1;
+    int sizeTlsVersion = (client.tlsVersion_).length() + 1;
     char *tlsVersion = new char(sizeTlsVersion);
     snprintf(tlsVersion, sizeTlsVersion, "%s", client.tlsVersion_.c_str());
 
-    int sizeCafile = sizeof(client.cafile_) + 1;
+    int sizeCafile = (client.cafile_).length() + 1;
     char *cafile = new char(sizeCafile);
     snprintf(cafile, sizeCafile, "%s", client.cafile_.c_str());
 
-    int sizeCertfile = sizeof(client.certfile_) + 1;
+    int sizeCertfile = (client.certfile_).length() + 1;
     char *certfile = new char(sizeCertfile);
     snprintf(certfile, sizeCertfile, "%s", client.certfile_.c_str());
 
-    int sizeKeyfile = sizeof(client.keyfile_) + 1;
+    int sizeKeyfile = (client.keyfile_).length() + 1;
     char *keyfile = new char(sizeKeyfile);
     snprintf(keyfile, sizeKeyfile, "%s", client.keyfile_.c_str());
 
-    int sizeHost = sizeof(client.host_) + 1;
+    int sizeHost = (client.host_).length() + 1;
     char *host = new char(sizeHost);
     snprintf(host, sizeHost, "%s", client.host_.c_str());
 
@@ -122,15 +116,26 @@ int main(int argc, char *argv[])
     mosquitto_tls_set(mosq, cafile, NULL, certfile, keyfile, NULL);
     mosquitto_connect_callback_set(mosq, on_connect);
     mosquitto_disconnect_callback_set(mosq, on_disconnect);
-    rc = mosquitto_connect(mosq, host, stoi(client.port_), 60);
+    rc = mosquitto_connect(mosq, host, 8883, 60);
+
+    std::string sTopic = "/";
+    for (auto topic : client.topic_)
+    {
+        sTopic = sTopic + topic + "/";
+    }
+
+    int sizeTopic = sTopic.length();
+    char *topic = new char(sizeTopic);
+    snprintf(topic, sizeTopic, "%s", sTopic.c_str());
+    std::cout << topic << std::endl;
 
     int counter{0};
-    while (counter < 51)
+    while (counter < 21)
     {
         if (check(counter))
         {
             std::string str = "Hello from pub_client! | Counter: " + std::to_string(counter);
-            int pub = mosquitto_publish(mosq, NULL, "/abc", 40, str.c_str(), 0, false);
+            int pub = mosquitto_publish(mosq, NULL, topic, 40, str.c_str(), 0, false);
             std::cout << "Public message status: " << pub << std::endl;
         }
         std::cout << "Counter: " << counter << "| Check: " << check(counter) << std::endl;
@@ -144,11 +149,32 @@ int main(int argc, char *argv[])
         mosquitto_loop(mosq, -1, 1);
     }
 
-    delete cafile;
-    delete certfile;
-    delete keyfile;
-    delete tlsVersion;
-    delete host;
+    if (cafile != nullptr)
+    {
+        delete cafile;
+        cafile = nullptr;
+    }
+    if (certfile != nullptr)
+    {
+        delete certfile;
+
+        certfile = nullptr;
+    }
+    if (keyfile != nullptr)
+    {
+        delete keyfile;
+        keyfile = nullptr;
+    }
+    if (tlsVersion != nullptr)
+    {
+        delete tlsVersion;
+        tlsVersion = nullptr;
+    }
+    if (host != nullptr)
+    {
+        delete host;
+        host = nullptr;
+    }
 
     mosquitto_destroy(mosq);
 

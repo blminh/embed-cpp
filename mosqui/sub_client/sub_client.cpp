@@ -9,36 +9,37 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <signal.h>
+#include <vector>
+#include <mutex>
+
+#define HOST_SIZE 128
 
 static int run = -1;
+
+std::mutex mutex;
 
 void handle_sigint(int signal)
 {
     std::cout << "Catch signal: " << signal << std::endl;
-    run = 0;
+    {
+        std::lock_guard<std::mutex> lock(mutex);
+        run = 0;
+    }
     exit(1);
 }
 
 void on_connect(struct mosquitto *mosq, void *obj, int rc)
 {
-    if (rc)
+    if (rc == 0)
     {
         exit(1);
-    }
-    else
-    {
-        mosquitto_disconnect(mosq);
     }
 }
 
 void on_disconnect(struct mosquitto *mosq, void *obj, int rc)
 {
+    std::lock_guard<std::mutex> lock(mutex);
     run = rc;
-}
-
-void on_subscribe(struct mosquitto *mosq, void *obj, int mid, int qos_count, const int *granted_qos)
-{
-    mosquitto_disconnect(mosq);
 }
 
 int on_message_callback(struct mosquitto *mosq, void *userdata, const struct mosquitto_message *message)
@@ -48,7 +49,6 @@ int on_message_callback(struct mosquitto *mosq, void *userdata, const struct mos
     return 0;
 }
 
-#include <vector>
 struct Client
 {
     std::string cafile_;
@@ -62,24 +62,30 @@ struct Client
 
 Client readConfig(std::string filepath)
 {
-    std::ifstream conf(filepath);
-    nlohmann::json confJson = nlohmann::json::parse(conf);
-    std::cout << confJson << std::endl;
+    try
+    {
+        std::ifstream conf(filepath);
+        nlohmann::json confJson = nlohmann::json::parse(conf);
 
-    Client client;
-    client.cafile_ = confJson["ca_file"];
-    client.certfile_ = confJson["certfile"];
-    client.keyfile_ = confJson["key_file"];
-    client.tlsVersion_ = confJson["tls_version"];
-    client.host_ = confJson["host"];
-    client.port_ = confJson["port"];
-    client.topic_ = confJson["topic"];
-    return client;
-}
-
-void showLog(int line, std::string msg)
-{
-    std::cout << "Line: " << line << " | Log: " << msg << std::endl;
+        Client client;
+        client.cafile_ = confJson["ca_file"];
+        client.certfile_ = confJson["certfile"];
+        client.keyfile_ = confJson["key_file"];
+        client.tlsVersion_ = confJson["tls_version"];
+        client.host_ = confJson["host"];
+        client.port_ = confJson["port"];
+        client.topic_ = confJson["topic"];
+        return client;
+    }
+    catch (nlohmann::json::exception e)
+    {
+        std::cout << "Line: " << __LINE__ << "| Error: " << e.what() << std::endl;
+    }
+    catch (std::exception e)
+    {
+        std::cout << "Line: " << __LINE__ << "| Error: " << e.what() << std::endl;
+    }
+    exit(1);
 }
 
 int main(int argc, char *argv[])
@@ -98,11 +104,6 @@ int main(int argc, char *argv[])
     }
 
     Client client = readConfig("config.json");
-    for (auto topic : client.topic_)
-    {
-        std::cout << topic << " / ";
-    }
-    std::cout << std::endl;
 
     libmosquitto_tls tls;
     int sizeCafile = sizeof(client.cafile_) + 1;
@@ -128,17 +129,26 @@ int main(int argc, char *argv[])
     snprintf(tls.tls_version, sizeTlsVersion, "%s", client.tlsVersion_.c_str());
 
     mosquitto_connect_callback_set(mosq, on_connect);
-    mosquitto_subscribe_callback_set(mosq, on_subscribe);
     mosquitto_disconnect_callback_set(mosq, on_disconnect);
 
-    int sizeHost = sizeof(client.host_) + 1;
-    char *host = new char(sizeHost);
-    snprintf(host, sizeHost, "%s", client.host_.c_str());
+    char host[HOST_SIZE] = {0};
+    snprintf(host, sizeof(host), "%s", client.host_.c_str());
+
+    std::string sTopic = "/";
+    for (auto topic : client.topic_)
+    {
+        sTopic = sTopic + topic + "/";
+    }
+
+    int sizeTopic = sTopic.length();
+    char *topic = new char(sizeTopic);
+    snprintf(topic, sizeTopic, "%s", sTopic.c_str());
+    std::cout << topic << std::endl;
 
     mosquitto_subscribe_callback(
         on_message_callback,
         NULL,
-        "/abc",
+        topic,
         0,
         host,
         stoi(client.port_),
@@ -148,11 +158,31 @@ int main(int argc, char *argv[])
         NULL, NULL, NULL,
         &tls);
 
-    delete host;
-    delete tls.cafile;
-    delete tls.keyfile;
-    delete tls.certfile;
-    delete tls.tls_version;
+    if (tls.cafile != nullptr)
+    {
+        delete tls.cafile;
+        tls.cafile = nullptr;
+    }
+    if (tls.certfile != nullptr)
+    {
+        delete tls.certfile;
+        tls.certfile = nullptr;
+    }
+    if (tls.keyfile != nullptr)
+    {
+        delete tls.keyfile;
+        tls.keyfile = nullptr;
+    }
+    if (tls.tls_version != nullptr)
+    {
+        delete tls.tls_version;
+        tls.tls_version = nullptr;
+    }
+    if (topic != nullptr)
+    {
+        delete topic;
+        topic = nullptr;
+    }
 
     mosquitto_loop_forever(mosq, run, 1);
 

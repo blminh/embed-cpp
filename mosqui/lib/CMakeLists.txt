@@ -1,7 +1,7 @@
 add_subdirectory(
-    json EXCLUDE_FROM_ALL
+    json
 )
 
 add_subdirectory(
-    mosquitto EXCLUDE_FROM_ALL
+    mosquitto
 )
