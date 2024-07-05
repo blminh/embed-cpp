@@ -7,6 +7,13 @@
 #include <signal.h>
 #include <nlohmann/json.hpp>
 
+#define DEL_PTR(ptr)    \
+    if (ptr != nullptr) \
+    {                   \
+        delete[] ptr;   \
+        ptr = nullptr;  \
+    }
+
 static int run = -1;
 std::mutex mutex;
 
@@ -101,17 +108,17 @@ int main(int argc, char *argv[])
 
     libmosquitto_tls tls;
     int sizeCafile = client.cafile_.length() + 1;
-    tls.cafile = new char(sizeCafile);
+    tls.cafile = new char[sizeCafile];
     snprintf(tls.cafile, sizeCafile, "%s", client.cafile_.c_str());
 
     tls.capath = NULL;
 
     int sizeCertfile = client.certfile_.length() + 1;
-    tls.certfile = new char(sizeCertfile);
+    tls.certfile = new char[sizeCertfile];
     snprintf(tls.certfile, sizeCertfile, "%s", client.certfile_.c_str());
 
     int sizeKeyfile = client.keyfile_.length() + 1;
-    tls.keyfile = new char(sizeKeyfile);
+    tls.keyfile = new char[sizeKeyfile];
     snprintf(tls.keyfile, sizeKeyfile, "%s", client.keyfile_.c_str());
 
     tls.cert_reqs = 0;
@@ -119,23 +126,19 @@ int main(int argc, char *argv[])
     tls.pw_callback = NULL;
 
     int sizeTlsVersion = client.tlsVersion_.length() + 1;
-    tls.tls_version = new char(sizeTlsVersion);
+    tls.tls_version = new char[sizeTlsVersion];
     snprintf(tls.tls_version, sizeTlsVersion, "%s", client.tlsVersion_.c_str());
 
     mosquitto_connect_callback_set(mosq, on_connect);
     mosquitto_disconnect_callback_set(mosq, on_disconnect);
 
-    std::string sTopic = "/";
-    for (auto topic : client.topic_)
-    {
-        sTopic = sTopic + topic + "/";
-    }
-    sTopic.pop_back();
+    std::cout << "Topic: " << client.topic_[0].c_str() << std::endl;
+    std::cout << "Topic: " << client.topic_[1].c_str() << std::endl;
 
     mosquitto_subscribe_callback(
         on_message_callback,
         NULL,
-        sTopic.c_str(),
+        client.topic_[0].c_str(),
         0,
         client.host_.c_str(),
         stoi(client.port_),
@@ -145,19 +148,12 @@ int main(int argc, char *argv[])
         NULL, NULL, NULL,
         &tls);
 
-#define DEL_PTR(ptr)    \
-    if (ptr != nullptr) \
-    {                   \
-        delete ptr;     \
-        ptr = nullptr;  \
-    }
-
     DEL_PTR(tls.cafile)
     DEL_PTR(tls.certfile)
     DEL_PTR(tls.keyfile)
     DEL_PTR(tls.tls_version)
 
-    mosquitto_loop_forever(mosq, run, 1);
+    // mosquitto_loop_forever(mosq, run, 1);
 
     mosquitto_lib_cleanup();
     return run;

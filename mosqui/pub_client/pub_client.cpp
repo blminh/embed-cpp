@@ -118,24 +118,13 @@ int main(int argc, char *argv[])
     mosquitto_disconnect_callback_set(mosq, on_disconnect);
     rc = mosquitto_connect(mosq, host, 8883, 60);
 
-    std::string sTopic = "/";
-    for (auto topic : client.topic_)
-    {
-        sTopic = sTopic + topic + "/";
-    }
-
-    int sizeTopic = sTopic.length();
-    char *topic = new char(sizeTopic);
-    snprintf(topic, sizeTopic, "%s", sTopic.c_str());
-    std::cout << topic << std::endl;
-
     int counter{0};
     while (counter < 21)
     {
         if (check(counter))
         {
             std::string str = "Hello from pub_client! | Counter: " + std::to_string(counter);
-            int pub = mosquitto_publish(mosq, NULL, topic, 40, str.c_str(), 0, false);
+            int pub = mosquitto_publish(mosq, NULL, client.topic_[0].c_str(), 40, str.c_str(), 0, false);
             std::cout << "Public message status: " << pub << std::endl;
         }
         std::cout << "Counter: " << counter << "| Check: " << check(counter) << std::endl;
