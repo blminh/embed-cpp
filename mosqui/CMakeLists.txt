@@ -22,11 +22,6 @@ add_subdirectory(
 
 add_executable(sub_client
     "sub_client/sub_client.cpp"
-<<<<<<< HEAD
-)
-
-target_link_libraries(sub_client PRIVATE
-=======
 )
 target_link_libraries(sub_client
     mosquittopp
@@ -41,11 +36,10 @@ add_executable(pub_client
 )
 target_link_libraries(pub_client
     mosquittopp
->>>>>>> 7bce2c1 (fix cmakelists.txt, clean sub_client)
     ssl
     crypto
     pthread
-    mosquittopp
+    nlohmann_json::nlohmann_json
 )
 
 file(COPY "${PROJECT_SOURCE_DIR}/ca_certificates/ca.crt" DESTINATION "${PROJECT_BINARY_DIR}")
