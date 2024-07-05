@@ -1,21 +1,13 @@
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <mosquitto.h>
 #include <iostream>
 #include <string>
-#include <csignal>
 #include <fstream>
-#include <nlohmann/json.hpp>
-#include <signal.h>
 #include <vector>
 #include <mutex>
-
-#define HOST_SIZE 128
+#include <mosquitto.h>
+#include <signal.h>
+#include <nlohmann/json.hpp>
 
 static int run = -1;
-
 std::mutex mutex;
 
 void handle_sigint(int signal)
@@ -30,7 +22,7 @@ void handle_sigint(int signal)
 
 void on_connect(struct mosquitto *mosq, void *obj, int rc)
 {
-    if (rc == 0)
+    if (rc != 0)
     {
         exit(1);
     }
@@ -80,12 +72,13 @@ Client readConfig(std::string filepath)
     catch (nlohmann::json::exception e)
     {
         std::cout << "Line: " << __LINE__ << "| Error: " << e.what() << std::endl;
+        throw std::runtime_error(e.what());
     }
     catch (std::exception e)
     {
         std::cout << "Line: " << __LINE__ << "| Error: " << e.what() << std::endl;
+        throw std::runtime_error(e.what());
     }
-    exit(1);
 }
 
 int main(int argc, char *argv[])
@@ -95,28 +88,29 @@ int main(int argc, char *argv[])
 
     signal(SIGINT, handle_sigint);
     signal(SIGSEGV, handle_sigint);
+
     mosquitto_lib_init();
 
     mosq = mosquitto_new("sub_client", true, NULL);
     if (mosq == NULL)
     {
-        return 1;
+        return -1;
     }
 
     Client client = readConfig("config.json");
 
     libmosquitto_tls tls;
-    int sizeCafile = sizeof(client.cafile_) + 1;
+    int sizeCafile = client.cafile_.length() + 1;
     tls.cafile = new char(sizeCafile);
     snprintf(tls.cafile, sizeCafile, "%s", client.cafile_.c_str());
 
     tls.capath = NULL;
 
-    int sizeCertfile = sizeof(client.certfile_) + 1;
+    int sizeCertfile = client.certfile_.length() + 1;
     tls.certfile = new char(sizeCertfile);
     snprintf(tls.certfile, sizeCertfile, "%s", client.certfile_.c_str());
 
-    int sizeKeyfile = sizeof(client.keyfile_) + 1;
+    int sizeKeyfile = client.keyfile_.length() + 1;
     tls.keyfile = new char(sizeKeyfile);
     snprintf(tls.keyfile, sizeKeyfile, "%s", client.keyfile_.c_str());
 
@@ -124,33 +118,26 @@ int main(int argc, char *argv[])
     tls.ciphers = NULL;
     tls.pw_callback = NULL;
 
-    int sizeTlsVersion = sizeof(client.tlsVersion_) + 1;
+    int sizeTlsVersion = client.tlsVersion_.length() + 1;
     tls.tls_version = new char(sizeTlsVersion);
     snprintf(tls.tls_version, sizeTlsVersion, "%s", client.tlsVersion_.c_str());
 
     mosquitto_connect_callback_set(mosq, on_connect);
     mosquitto_disconnect_callback_set(mosq, on_disconnect);
 
-    char host[HOST_SIZE] = {0};
-    snprintf(host, sizeof(host), "%s", client.host_.c_str());
-
     std::string sTopic = "/";
     for (auto topic : client.topic_)
     {
         sTopic = sTopic + topic + "/";
     }
-
-    int sizeTopic = sTopic.length();
-    char *topic = new char(sizeTopic);
-    snprintf(topic, sizeTopic, "%s", sTopic.c_str());
-    std::cout << topic << std::endl;
+    sTopic.pop_back();
 
     mosquitto_subscribe_callback(
         on_message_callback,
         NULL,
-        topic,
+        sTopic.c_str(),
         0,
-        host,
+        client.host_.c_str(),
         stoi(client.port_),
         "sub_client",
         60,
@@ -158,31 +145,17 @@ int main(int argc, char *argv[])
         NULL, NULL, NULL,
         &tls);
 
-    if (tls.cafile != nullptr)
-    {
-        delete tls.cafile;
-        tls.cafile = nullptr;
+#define DEL_PTR(ptr)    \
+    if (ptr != nullptr) \
+    {                   \
+        delete ptr;     \
+        ptr = nullptr;  \
     }
-    if (tls.certfile != nullptr)
-    {
-        delete tls.certfile;
-        tls.certfile = nullptr;
-    }
-    if (tls.keyfile != nullptr)
-    {
-        delete tls.keyfile;
-        tls.keyfile = nullptr;
-    }
-    if (tls.tls_version != nullptr)
-    {
-        delete tls.tls_version;
-        tls.tls_version = nullptr;
-    }
-    if (topic != nullptr)
-    {
-        delete topic;
-        topic = nullptr;
-    }
+
+    DEL_PTR(tls.cafile)
+    DEL_PTR(tls.certfile)
+    DEL_PTR(tls.keyfile)
+    DEL_PTR(tls.tls_version)
 
     mosquitto_loop_forever(mosq, run, 1);
 
