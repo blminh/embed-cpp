@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
     DEL_PTR(tls.tls_version)
 
     // mosquitto_loop_forever(mosq, run, 1);
-
+    mosquitto_destroy(mosq);
     mosquitto_lib_cleanup();
     return run;
 }
