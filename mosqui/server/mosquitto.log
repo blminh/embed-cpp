@@ -203,3 +203,20 @@
 1720194623: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
 1720194623: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
 1720194623: Error: Permission denied.
+1720260833: mosquitto version 2.0.18 starting
+1720260833: Config loaded from mosqui.conf.
+1720260833: Opening ipv4 listen socket on port 8883.
+1720260833: Opening ipv6 listen socket on port 8883.
+1720260833: mosquitto version 2.0.18 running
+1720260836: New connection from 127.0.0.1:45944 on port 8883.
+1720260836: New client connected from 127.0.0.1:45944 as sub_client (p2, c1, k60, u'neko-S451LA').
+1720260839: New connection from 127.0.0.1:35948 on port 8883.
+1720260840: New client connected from 127.0.0.1:35948 as pub_client (p2, c1, k60, u'neko-S451LA').
+1720260841: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
+1720260841: Client pub_client closed its connection.
+1720262272: OpenSSL Error[0]: error:0A000126:SSL routines::unexpected eof while reading
+1720262272: Client sub_client closed its connection.
+1720262273: mosquitto version 2.0.18 terminating
+1720262273: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1720262273: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1720262273: Error: Permission denied.
