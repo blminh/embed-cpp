@@ -11,26 +11,6 @@
 
 static int run = -1;
 
-void handle_sigint(int signal)
-{
-    std::cout << "Catch signal: " << signal << std::endl;
-    run = 0;
-    exit(1);
-}
-
-void on_connect(struct mosquitto *mosq, void *obj, int rc)
-{
-    if (rc != 0)
-    {
-        exit(1);
-    }
-}
-
-void on_disconnect(struct mosquitto *mosq, void *obj, int rc)
-{
-    run = rc;
-}
-
 struct Client
 {
     std::string cafile_;
@@ -58,6 +38,37 @@ Client readConfig(std::string filepath)
     return client;
 }
 
+void log(int line, int rc = 0, std::string msg = "default")
+{
+    std::cout << "Line: " << line << " | rc: " << rc << " | Msg: " << msg << std::endl;
+}
+
+void handle_sigint(int signal)
+{
+    std::cout << "Catch signal: " << signal << std::endl;
+    exit(1);
+}
+
+void on_connect(struct mosquitto *mosq, void *obj, int rc)
+{
+    if (rc != 0)
+    {
+        log(__LINE__, rc, "Connect failed with code");
+        run = rc;
+    }
+    else
+    {
+        log(__LINE__, rc, "Connected to the broker");
+        run = -1;
+    }
+}
+
+void on_disconnect(struct mosquitto *mosq, void *obj, int rc)
+{
+    log(__LINE__, rc, "disconnect broker");
+    mosquitto_reconnect(mosq);
+}
+
 int main(int argc, char *argv[])
 {
     int rc;
@@ -70,27 +81,50 @@ int main(int argc, char *argv[])
     mosq = mosquitto_new("pub_client", true, NULL);
     if (mosq == NULL)
     {
-        return 1;
+        return -1;
     }
 
     Client client = readConfig("config.json");
 
+    rc = mosquitto_will_set(mosq, client.topic_[0].c_str(), 40, "Client disconnected unexpectedly", 1, 0);
+    if (rc != MOSQ_ERR_SUCCESS)
+    {
+        return rc;
+    }
+    log(__LINE__, rc, "will message");
+
+    // rc = mosquitto_will_clear(mosq);
+    // if (rc != MOSQ_ERR_SUCCESS)
+    // {
+    //     return rc;
+    // }
+    // log(__LINE__, rc, "will clear message");
+
     mosquitto_tls_opts_set(mosq, 1, client.tlsVersion_.c_str(), NULL);
     mosquitto_tls_set(mosq, client.cafile_.c_str(), NULL, client.certfile_.c_str(), client.keyfile_.c_str(), NULL);
+
     mosquitto_connect_callback_set(mosq, on_connect);
     mosquitto_disconnect_callback_set(mosq, on_disconnect);
+
     rc = mosquitto_connect(mosq, client.host_.c_str(), stoi(client.port_), 60);
 
     std::string str = "Hello from pub_client!";
-    int pub = mosquitto_publish(mosq, NULL, client.topic_[0].c_str(), 40, str.c_str(), 0, false);
+    mosquitto_publish(mosq, NULL, client.topic_[0].c_str(), str.length(), str.c_str(), 0, false);
 
     while (run == -1)
     {
-        mosquitto_loop(mosq, -1, 1);
+        rc = mosquitto_loop(mosq, -1, 1);
+        if (rc != MOSQ_ERR_SUCCESS)
+        {
+            log(__LINE__, rc, "Reconnecting ...");
+            mosquitto_reconnect_delay_set(mosq, 1000, 5000, true);
+            rc = mosquitto_reconnect(mosq);
+        }
     }
 
-    mosquitto_destroy(mosq);
+    mosquitto_loop_forever(mosq, -1, 1);
 
+    mosquitto_destroy(mosq);
     mosquitto_lib_cleanup();
     return run;
 }
