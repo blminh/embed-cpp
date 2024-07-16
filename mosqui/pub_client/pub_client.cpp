@@ -3,13 +3,18 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <mutex>
 #include <vector>
 #include <signal.h>
 #include <openssl/ssl.h>
 #include <mosquitto.h>
 #include <nlohmann/json.hpp>
+#include "temperatureCpu.cpp"
+#include "ramUsage.cpp"
+#include "cpuUsage.cpp"
 
 static int run = -1;
+std::mutex mutex;
 
 struct Client
 {
@@ -54,11 +59,11 @@ void on_connect(struct mosquitto *mosq, void *obj, int rc)
     if (rc != 0)
     {
         log(__LINE__, rc, "Connect failed with code");
-        run = rc;
     }
     else
     {
         log(__LINE__, rc, "Connected to the broker");
+        std::lock_guard<std::mutex> lock(mutex);
         run = -1;
     }
 }
@@ -66,7 +71,6 @@ void on_connect(struct mosquitto *mosq, void *obj, int rc)
 void on_disconnect(struct mosquitto *mosq, void *obj, int rc)
 {
     log(__LINE__, rc, "disconnect broker");
-    mosquitto_reconnect(mosq);
 }
 
 int main(int argc, char *argv[])
@@ -86,17 +90,18 @@ int main(int argc, char *argv[])
 
     Client client = readConfig("config.json");
 
-    rc = mosquitto_will_set(mosq, client.topic_[0].c_str(), 40, "Client disconnected unexpectedly", 1, 0);
+    std::string willMsg = "Client disconnected unexpectedly";
+    rc = mosquitto_will_set(mosq, client.topic_[0].c_str(), willMsg.length(), willMsg.c_str(), 1, 0);
     if (rc != MOSQ_ERR_SUCCESS)
     {
-        return rc;
+        return -1;
     }
     log(__LINE__, rc, "will message");
 
     // rc = mosquitto_will_clear(mosq);
     // if (rc != MOSQ_ERR_SUCCESS)
     // {
-    //     return rc;
+    //     return -1;
     // }
     // log(__LINE__, rc, "will clear message");
 
@@ -108,17 +113,36 @@ int main(int argc, char *argv[])
 
     rc = mosquitto_connect(mosq, client.host_.c_str(), stoi(client.port_), 60);
 
-    std::string str = "Hello from pub_client!";
-    mosquitto_publish(mosq, NULL, client.topic_[0].c_str(), str.length(), str.c_str(), 0, false);
+    if (rc != MOSQ_ERR_SUCCESS)
+    {
+        log(__LINE__, rc, "Reconnecting ...");
+        return -1;
+    }
 
-    while (run == -1)
+    while (1)
+    {
+        std::string str = "Hello from pub_client!";
+        mosquitto_publish(mosq, NULL, client.topic_[0].c_str(), str.length(), str.c_str(), 1, true);
+
+        std::string strTemp = temperatureCpu();
+        mosquitto_publish(mosq, NULL, client.topic_[0].c_str(), strTemp.length(), strTemp.c_str(), 1, true);
+
+        std::string strRamUsage = ramUsage();
+        mosquitto_publish(mosq, NULL, client.topic_[0].c_str(), strRamUsage.length(), strRamUsage.c_str(), 1, true);
+
+        std::string strCpuUsage = cpuUsage();
+        mosquitto_publish(mosq, NULL, client.topic_[0].c_str(), strCpuUsage.length(), strCpuUsage.c_str(), 1, true);
+        sleep(5);    
+    }
+
+    while(run == -1)
     {
         rc = mosquitto_loop(mosq, -1, 1);
         if (rc != MOSQ_ERR_SUCCESS)
         {
-            log(__LINE__, rc, "Reconnecting ...");
-            mosquitto_reconnect_delay_set(mosq, 1000, 5000, true);
+            mosquitto_reconnect_delay_set(mosq, 1000, 10000, true);
             rc = mosquitto_reconnect(mosq);
+            log(__LINE__, rc, "Reconnecting ...");
         }
     }
 
