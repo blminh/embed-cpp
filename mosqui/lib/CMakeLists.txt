@@ -5,3 +5,7 @@ add_subdirectory(
 add_subdirectory(
     mosquitto
 )
+
+add_subdirectory(
+    civetweb
+)

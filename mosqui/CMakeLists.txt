@@ -8,6 +8,9 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/lib/mosquitto/lib/cpp
     ${PROJECT_SOURCE_DIR}/lib/mosquitto/include
     ${PROJECT_SOURCE_DIR}/lib/json/include
+    ${PROJECT_SOURCE_DIR}/lib/civetweb
+    ${PROJECT_SOURCE_DIR}/lib/civetweb/src
+    ${PROJECT_SOURCE_DIR}/lib/civetweb/include
 )
 
 link_directories(
@@ -21,7 +24,7 @@ add_subdirectory(
 )
 
 add_executable(sub_client
-    "sub_client/sub_client.cpp"
+    "sub_client/sub_client_nonssl.cpp"
 )
 target_link_libraries(sub_client
     mosquittopp
@@ -31,8 +34,21 @@ target_link_libraries(sub_client
     nlohmann_json::nlohmann_json
 )
 
+add_executable(web_server
+    "web_server/main.cpp"
+)
+target_link_libraries(web_server
+    civetweb
+    civetweb-cpp
+    mosquittopp
+    ssl
+    crypto
+    pthread
+    nlohmann_json::nlohmann_json
+)
+
 add_executable(pub_client
-    "pub_client/pub_client.cpp"
+    "pub_client/pub_client_nonssl.cpp"
 )
 target_link_libraries(pub_client
     mosquittopp

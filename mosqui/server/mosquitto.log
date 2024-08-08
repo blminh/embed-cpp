@@ -1,0 +1,375 @@
+1722964640: mosquitto version 2.0.18 starting
+1722964640: Config loaded from mosqui.conf.
+1722964640: Opening ipv4 listen socket on port 1883.
+1722964640: Opening ipv6 listen socket on port 1883.
+1722964640: Opening websockets listen socket on port 8089.
+1722964640: mosquitto version 2.0.18 running
+1722964657: New connection from 127.0.0.1:36018 on port 1883.
+1722964657: New client connected from 127.0.0.1:36018 as pub_client (p2, c1, k60).
+1722964664: New connection from 127.0.0.1:58598 on port 1883.
+1722964664: New client connected from 127.0.0.1:58598 as auto-5A2283A9-2332-E90E-4A30-7BA2BB616F4E (p2, c1, k60).
+1722964680: Client auto-5A2283A9-2332-E90E-4A30-7BA2BB616F4E closed its connection.
+1722964681: Client pub_client closed its connection.
+1722965868: New connection from 127.0.0.1:33554 on port 1883.
+1722965868: New client connected from 127.0.0.1:33554 as auto-DA4AFE9C-9EC2-3C79-073B-DDC14C264EFF (p2, c1, k60).
+1722965869: New connection from 127.0.0.1:33556 on port 1883.
+1722965869: New client connected from 127.0.0.1:33556 as auto-7AE95F5A-0A36-AECB-4CE4-2805C1068C9B (p2, c1, k60).
+1722965872: New connection from 127.0.0.1:49340 on port 1883.
+1722965872: New client connected from 127.0.0.1:49340 as pub_client (p2, c1, k60).
+1722965876: New connection from 127.0.0.1:49342 on port 1883.
+1722965876: New client connected from 127.0.0.1:49342 as auto-B3449CED-045C-9206-6394-AE5DC7EFC725 (p2, c1, k60).
+1722965969: New connection from 127.0.0.1:42744 on port 1883.
+1722965969: New client connected from 127.0.0.1:42744 as auto-4122FD67-71B9-8B1D-21B5-45E41B2A1A31 (p2, c1, k60).
+1722965970: New connection from 127.0.0.1:42752 on port 1883.
+1722965970: New client connected from 127.0.0.1:42752 as auto-A0C99411-B848-0B61-8F0E-0F6DA270304D (p2, c1, k60).
+1722965971: New connection from 127.0.0.1:52254 on port 1883.
+1722965971: New client connected from 127.0.0.1:52254 as auto-AE7068E4-EF88-CD89-AB49-57849B0D52EB (p2, c1, k60).
+1722965971: New connection from 127.0.0.1:52264 on port 1883.
+1722965971: New client connected from 127.0.0.1:52264 as auto-9D54A280-FE74-7BCE-4CED-8AB31D1E8616 (p2, c1, k60).
+1722965971: New connection from 127.0.0.1:52266 on port 1883.
+1722965971: New client connected from 127.0.0.1:52266 as auto-5AA81B4A-ED49-FDA9-97C2-C9BB4A6D155A (p2, c1, k60).
+1722965972: New connection from 127.0.0.1:52282 on port 1883.
+1722965972: New client connected from 127.0.0.1:52282 as auto-7373F5D8-BFE8-437C-8944-A2E8574CB192 (p2, c1, k60).
+1722965973: New connection from 127.0.0.1:52290 on port 1883.
+1722965973: New client connected from 127.0.0.1:52290 as auto-7AF01390-F426-FEF1-B3F0-9903581550C8 (p2, c1, k60).
+1722965973: New connection from 127.0.0.1:52306 on port 1883.
+1722965973: New client connected from 127.0.0.1:52306 as auto-BBCC3B79-942A-9381-1ABD-6D1535D307D9 (p2, c1, k60).
+1722965973: New connection from 127.0.0.1:52310 on port 1883.
+1722965973: New client connected from 127.0.0.1:52310 as auto-FF5B21C2-65B3-4A48-9F8A-B87E228E0AAF (p2, c1, k60).
+1722965987: Client auto-FF5B21C2-65B3-4A48-9F8A-B87E228E0AAF closed its connection.
+1722965987: Client auto-BBCC3B79-942A-9381-1ABD-6D1535D307D9 closed its connection.
+1722965987: Client auto-7AF01390-F426-FEF1-B3F0-9903581550C8 closed its connection.
+1722965987: Client auto-7373F5D8-BFE8-437C-8944-A2E8574CB192 closed its connection.
+1722965987: Client auto-5AA81B4A-ED49-FDA9-97C2-C9BB4A6D155A closed its connection.
+1722965987: Client auto-9D54A280-FE74-7BCE-4CED-8AB31D1E8616 closed its connection.
+1722965987: Client auto-AE7068E4-EF88-CD89-AB49-57849B0D52EB closed its connection.
+1722965987: Client auto-A0C99411-B848-0B61-8F0E-0F6DA270304D closed its connection.
+1722965987: Client auto-4122FD67-71B9-8B1D-21B5-45E41B2A1A31 closed its connection.
+1722965987: Client auto-B3449CED-045C-9206-6394-AE5DC7EFC725 closed its connection.
+1722965987: Client auto-7AE95F5A-0A36-AECB-4CE4-2805C1068C9B closed its connection.
+1722965987: Client auto-DA4AFE9C-9EC2-3C79-073B-DDC14C264EFF closed its connection.
+1722965989: Client pub_client has exceeded timeout, disconnecting.
+1722965998: New connection from 127.0.0.1:50210 on port 1883.
+1722965998: New client connected from 127.0.0.1:50210 as auto-141C3E5F-CE99-BA20-D047-5E517FF82A3F (p2, c1, k60).
+1722966005: Client auto-141C3E5F-CE99-BA20-D047-5E517FF82A3F closed its connection.
+1722966034: New connection from 127.0.0.1:55014 on port 1883.
+1722966034: New client connected from 127.0.0.1:55014 as auto-6F453AB1-0C4C-F9A8-7598-E43BACAD530B (p2, c1, k60).
+1722966044: New connection from 127.0.0.1:55576 on port 1883.
+1722966044: New client connected from 127.0.0.1:55576 as auto-042EACB7-9054-726A-DE47-7B1A227B9BB3 (p2, c1, k60).
+1722966044: New connection from 127.0.0.1:55592 on port 1883.
+1722966044: New client connected from 127.0.0.1:55592 as auto-7F788B15-ACC3-57D2-846E-56A554780DF3 (p2, c1, k60).
+1722966044: New connection from 127.0.0.1:55602 on port 1883.
+1722966044: New client connected from 127.0.0.1:55602 as auto-B38F7D93-BA9F-831B-12BE-43BDF687691C (p2, c1, k60).
+1722966044: New connection from 127.0.0.1:55606 on port 1883.
+1722966044: New client connected from 127.0.0.1:55606 as auto-14DAC4A6-A5A7-91BF-2515-25766F7FDFDF (p2, c1, k60).
+1722966044: New connection from 127.0.0.1:55614 on port 1883.
+1722966044: New client connected from 127.0.0.1:55614 as auto-6B7147D7-F445-3124-AF4B-0A1893643C88 (p2, c1, k60).
+1722966045: New connection from 127.0.0.1:55622 on port 1883.
+1722966045: New client connected from 127.0.0.1:55622 as auto-68D6709B-8972-89BB-41A2-52824423D9C8 (p2, c1, k60).
+1722966048: New connection from 127.0.0.1:55632 on port 1883.
+1722966048: New client connected from 127.0.0.1:55632 as auto-34567A2F-1CF0-2131-8615-FBA98E339D55 (p2, c1, k60).
+1722966049: New connection from 127.0.0.1:55646 on port 1883.
+1722966049: New client connected from 127.0.0.1:55646 as auto-EB31D7D0-7A13-664A-1CF1-44BE88491551 (p2, c1, k60).
+1722966049: New connection from 127.0.0.1:55658 on port 1883.
+1722966049: New client connected from 127.0.0.1:55658 as auto-10BAFA2A-883D-49D0-3387-0CD567B820F8 (p2, c1, k60).
+1722966049: New connection from 127.0.0.1:55674 on port 1883.
+1722966049: New client connected from 127.0.0.1:55674 as auto-47232622-FE18-81B1-8932-62A15C7FBA39 (p2, c1, k60).
+1722966119: Client auto-47232622-FE18-81B1-8932-62A15C7FBA39 closed its connection.
+1722966119: Client auto-10BAFA2A-883D-49D0-3387-0CD567B820F8 closed its connection.
+1722966119: Client auto-EB31D7D0-7A13-664A-1CF1-44BE88491551 closed its connection.
+1722966119: Client auto-34567A2F-1CF0-2131-8615-FBA98E339D55 closed its connection.
+1722966119: Client auto-68D6709B-8972-89BB-41A2-52824423D9C8 closed its connection.
+1722966119: Client auto-6B7147D7-F445-3124-AF4B-0A1893643C88 closed its connection.
+1722966119: Client auto-14DAC4A6-A5A7-91BF-2515-25766F7FDFDF closed its connection.
+1722966119: Client auto-B38F7D93-BA9F-831B-12BE-43BDF687691C closed its connection.
+1722966119: Client auto-7F788B15-ACC3-57D2-846E-56A554780DF3 closed its connection.
+1722966119: Client auto-042EACB7-9054-726A-DE47-7B1A227B9BB3 closed its connection.
+1722966119: Client auto-6F453AB1-0C4C-F9A8-7598-E43BACAD530B closed its connection.
+1722966125: New connection from 127.0.0.1:53158 on port 1883.
+1722966125: New client connected from 127.0.0.1:53158 as auto-3B2F46A8-49F7-917A-3D47-76A2C5B4D64E (p2, c1, k60).
+1722966150: Client auto-3B2F46A8-49F7-917A-3D47-76A2C5B4D64E closed its connection.
+1722966216: New connection from 127.0.0.1:52914 on port 1883.
+1722966216: New client connected from 127.0.0.1:52914 as pub_client (p2, c1, k60).
+1722966247: New connection from 127.0.0.1:36456 on port 1883.
+1722966247: New client connected from 127.0.0.1:36456 as auto-C61098D6-7A14-B849-4589-F5503B4BE275 (p2, c1, k60).
+1722966256: New connection from 127.0.0.1:47722 on port 1883.
+1722966256: New client connected from 127.0.0.1:47722 as auto-3F57DFBE-E579-DE08-9D85-A1F228CD3FDE (p2, c1, k60).
+1722966324: Client auto-3F57DFBE-E579-DE08-9D85-A1F228CD3FDE closed its connection.
+1722966324: Client auto-C61098D6-7A14-B849-4589-F5503B4BE275 closed its connection.
+1722966337: New connection from 127.0.0.1:55290 on port 1883.
+1722966337: New client connected from 127.0.0.1:55290 as auto-D8AB6E11-9B36-7F8E-65B1-F094B650767C (p2, c1, k60).
+1722966366: Client auto-D8AB6E11-9B36-7F8E-65B1-F094B650767C closed its connection.
+1722966376: Client pub_client closed its connection.
+1722966376: New connection from 127.0.0.1:42342 on port 1883.
+1722966376: New client connected from 127.0.0.1:42342 as pub_client (p2, c1, k60).
+1722966381: New connection from 127.0.0.1:56898 on port 1883.
+1722966381: New client connected from 127.0.0.1:56898 as auto-A85D3B19-760F-4CDA-E864-9CED74FBD67E (p2, c1, k60).
+1722966440: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1722966440: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1722966440: Error: Permission denied.
+1722966447: Client auto-A85D3B19-760F-4CDA-E864-9CED74FBD67E closed its connection.
+1722966468: New connection from 127.0.0.1:53860 on port 1883.
+1722966468: New client connected from 127.0.0.1:53860 as auto-E8658C4C-2903-C90D-A6D7-B83FF7A00320 (p2, c1, k60).
+1722966543: Client auto-E8658C4C-2903-C90D-A6D7-B83FF7A00320 closed its connection.
+1722966550: New connection from 127.0.0.1:52350 on port 1883.
+1722966550: New client connected from 127.0.0.1:52350 as auto-0B386819-3AE9-DA06-B049-3D9E40ED3C59 (p2, c1, k60).
+1722966565: Client pub_client has exceeded timeout, disconnecting.
+1722966585: Client auto-0B386819-3AE9-DA06-B049-3D9E40ED3C59 closed its connection.
+1722966592: New connection from 127.0.0.1:50486 on port 1883.
+1722966592: New client connected from 127.0.0.1:50486 as auto-0682ADB5-8566-3FE3-1962-005CAA58B241 (p2, c1, k60).
+1722966610: Client auto-0682ADB5-8566-3FE3-1962-005CAA58B241 closed its connection.
+1722966626: New connection from 127.0.0.1:45328 on port 1883.
+1722966626: New client connected from 127.0.0.1:45328 as auto-C119042E-249D-88D7-C322-1F0EA392E4BE (p2, c1, k60).
+1722997942: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1722997942: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1722997942: Error: Permission denied.
+1722997942: Client auto-C119042E-249D-88D7-C322-1F0EA392E4BE has exceeded timeout, disconnecting.
+1722997943: New connection from 127.0.0.1:39500 on port 1883.
+1722997943: New client connected from 127.0.0.1:39500 as auto-9F53903A-B3AA-AD5A-7BDB-F49531011A2C (p2, c1, k60).
+1722999743: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1722999743: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1722999743: Error: Permission denied.
+1723001545: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723001545: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723001545: Error: Permission denied.
+1723003346: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723003346: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723003346: Error: Permission denied.
+1723005147: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723005147: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723005147: Error: Permission denied.
+1723006948: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723006948: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723006948: Error: Permission denied.
+1723008749: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723008749: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723008749: Error: Permission denied.
+1723010550: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723010550: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723010550: Error: Permission denied.
+1723012351: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723012351: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723012351: Error: Permission denied.
+1723014152: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723014152: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723014152: Error: Permission denied.
+1723015953: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723015953: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723015953: Error: Permission denied.
+1723017754: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723017754: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723017754: Error: Permission denied.
+1723019555: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723019555: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723019555: Error: Permission denied.
+1723021356: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723021356: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723021356: Error: Permission denied.
+1723023157: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723023157: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723023157: Error: Permission denied.
+1723024321: Client auto-9F53903A-B3AA-AD5A-7BDB-F49531011A2C closed its connection.
+1723024332: New connection from 127.0.0.1:49712 on port 1883.
+1723024332: New client connected from 127.0.0.1:49712 as pub_client (p2, c1, k60).
+1723024336: New connection from 127.0.0.1:58828 on port 1883.
+1723024336: New client connected from 127.0.0.1:58828 as auto-E7766B72-389B-3BE4-5B6E-3722055D0F2C (p2, c1, k60).
+1723024367: Client auto-E7766B72-389B-3BE4-5B6E-3722055D0F2C closed its connection.
+1723024370: Client pub_client closed its connection.
+1723024393: New connection from 127.0.0.1:51764 on port 1883.
+1723024393: New client connected from 127.0.0.1:51764 as pub_client (p2, c1, k60).
+1723024396: New connection from 127.0.0.1:49944 on port 1883.
+1723024396: New client connected from 127.0.0.1:49944 as auto-5D5886AD-3CC1-1F18-03E2-989752B8F8F2 (p2, c1, k60).
+1723024412: Client auto-5D5886AD-3CC1-1F18-03E2-989752B8F8F2 closed its connection.
+1723024414: Client pub_client closed its connection.
+1723024958: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723024958: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723024958: Error: Permission denied.
+1723026759: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723026759: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723026759: Error: Permission denied.
+1723028560: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723028560: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723028560: Error: Permission denied.
+1723030361: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723030361: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723030361: Error: Permission denied.
+1723032162: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723032162: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723032162: Error: Permission denied.
+1723033963: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723033963: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723033963: Error: Permission denied.
+1723035764: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723035764: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723035764: Error: Permission denied.
+1723037565: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723037565: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723037565: Error: Permission denied.
+1723039362: New connection from 127.0.0.1:47954 on port 1883.
+1723039362: New client connected from 127.0.0.1:47954 as pub_client (p2, c1, k60).
+1723039364: New connection from 127.0.0.1:42392 on port 1883.
+1723039364: New client connected from 127.0.0.1:42392 as auto-67AC5122-F907-9F08-017C-AFA9823B4653 (p2, c1, k60).
+1723039366: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723039366: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723039366: Error: Permission denied.
+1723039393: Client auto-67AC5122-F907-9F08-017C-AFA9823B4653 closed its connection.
+1723039394: Client pub_client closed its connection.
+1723041167: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723041167: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723041167: Error: Permission denied.
+1723042968: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723042968: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723042968: Error: Permission denied.
+1723044769: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723044769: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723044769: Error: Permission denied.
+1723046570: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723046570: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723046570: Error: Permission denied.
+1723048371: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723048371: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723048371: Error: Permission denied.
+1723050172: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723050172: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723050172: Error: Permission denied.
+1723051973: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723051973: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723051973: Error: Permission denied.
+1723053774: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723053774: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723053774: Error: Permission denied.
+1723055575: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723055575: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723055575: Error: Permission denied.
+1723057376: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723057376: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723057376: Error: Permission denied.
+1723059177: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723059177: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723059177: Error: Permission denied.
+1723060978: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723060978: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723060978: Error: Permission denied.
+1723062779: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723062779: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723062779: Error: Permission denied.
+1723064580: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723064580: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723064580: Error: Permission denied.
+1723066381: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723066381: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723066381: Error: Permission denied.
+1723068182: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723068182: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723068182: Error: Permission denied.
+1723069983: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723069983: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723069983: Error: Permission denied.
+1723071784: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723071784: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723071784: Error: Permission denied.
+1723073585: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723073585: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723073585: Error: Permission denied.
+1723075386: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723075386: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723075386: Error: Permission denied.
+1723077187: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723077187: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723077187: Error: Permission denied.
+1723078988: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723078988: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723078988: Error: Permission denied.
+1723080789: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723080789: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723080789: Error: Permission denied.
+1723082590: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723082590: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723082590: Error: Permission denied.
+1723084391: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723084391: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723084391: Error: Permission denied.
+1723086192: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723086192: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723086192: Error: Permission denied.
+1723087993: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723087993: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723087993: Error: Permission denied.
+1723089794: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723089794: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723089794: Error: Permission denied.
+1723091595: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723091595: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723091595: Error: Permission denied.
+1723093396: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723093396: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723093396: Error: Permission denied.
+1723095197: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723095197: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723095197: Error: Permission denied.
+1723096998: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723096998: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723096998: Error: Permission denied.
+1723098799: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723098799: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723098799: Error: Permission denied.
+1723100600: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723100600: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723100600: Error: Permission denied.
+1723102401: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723102401: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723102401: Error: Permission denied.
+1723104202: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723104202: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723104202: Error: Permission denied.
+1723106003: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723106003: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723106003: Error: Permission denied.
+1723107804: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723107804: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723107804: Error: Permission denied.
+1723109605: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723109605: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723109605: Error: Permission denied.
+1723111406: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723111406: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723111406: Error: Permission denied.
+1723113207: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723113207: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723113207: Error: Permission denied.
+1723115008: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723115008: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723115008: Error: Permission denied.
+1723116809: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723116809: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723116809: Error: Permission denied.
+1723118610: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723118610: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723118610: Error: Permission denied.
+1723120411: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723120411: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723120411: Error: Permission denied.
+1723122212: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723122212: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723122212: Error: Permission denied.
+1723123095: New connection from 127.0.0.1:33652 on port 1883.
+1723123095: New client connected from 127.0.0.1:33652 as pub_client (p2, c1, k60).
+1723123099: New connection from 127.0.0.1:33656 on port 1883.
+1723123099: New client connected from 127.0.0.1:33656 as auto-DB46D4CF-A75B-A176-D666-4BFBBEFEC6C2 (p2, c1, k60).
+1723123153: Client auto-DB46D4CF-A75B-A176-D666-4BFBBEFEC6C2 closed its connection.
+1723123154: Client pub_client closed its connection.
+1723124013: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723124013: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723124013: Error: Permission denied.
+1723125814: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723125814: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723125814: Error: Permission denied.
+1723127615: Saving in-memory database to /var/lib/mosquitto//mosquitto.db.
+1723127615: Error saving in-memory database, unable to open /var/lib/mosquitto//mosquitto.db.new for writing.
+1723127615: Error: Permission denied.
+1723128628: New connection from 127.0.0.1:54446 on port 1883.
+1723128628: New client connected from 127.0.0.1:54446 as pub_client (p2, c1, k60).
+1723128630: New connection from 127.0.0.1:54456 on port 1883.
+1723128630: New client connected from 127.0.0.1:54456 as auto-0DBB303A-01BB-DDED-6D59-FFDD52F83FA8 (p2, c1, k60).
+1723128767: Client pub_client has exceeded timeout, disconnecting.
+1723129074: Client auto-0DBB303A-01BB-DDED-6D59-FFDD52F83FA8 closed its connection.
