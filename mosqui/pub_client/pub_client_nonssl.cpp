@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     signal(SIGSEGV, handle_sigint);
 
     mosquitto_lib_init();
-    mosq = mosquitto_new("pub_client", true, NULL);
+    mosq = mosquitto_new("receiver", true, NULL);
     if (mosq == NULL)
     {
         return -1;
@@ -67,7 +67,6 @@ int main(int argc, char *argv[])
     {
         return -1;
     }
-    log(__LINE__, rc, "will message");
 
     mosquitto_connect_callback_set(mosq, on_connect);
     mosquitto_disconnect_callback_set(mosq, on_disconnect);

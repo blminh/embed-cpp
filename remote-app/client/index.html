@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITEMS</title>
+    <script src="axios.min.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <hr />
+    <h4>Create new item:</h4>
+    <label for="itemName">Name:</label>
+    <input id="itemName" type="text" placeholder="Name" />
+    <br />
+    <br />
+    <label for="itemStatus">Status:</label>
+    <select id="itemStatus">
+      <option value="1">On</option>
+      <option value="0">Off</option>
+    </select>
+    <br />
+    <br />
+    <button id="btnNew" onclick="createItem()">New</button>
+    <hr />
+    <input id="searchText" type="text" />
+    <button id="btnSearch" onclick="searchItem()">Search</button>
+    <p id="item"></p>
+    <br />
+    <button id="btnListItems" onclick="listItems()">List</button>
+    <hr />
+    <div id="items"></div>
+  </body>
+</html>

@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 
     mosquitto_lib_init();
 
-    mosq = mosquitto_new("sub_client", true, NULL);
+    mosq = mosquitto_new("sender", true, NULL);
     if (mosq == NULL)
     {
         return -1;
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
         0,
         "0.0.0.0",
         1883,
-        "sub_client",
+        "sender",
         60,
         true,
         NULL, NULL, NULL,
