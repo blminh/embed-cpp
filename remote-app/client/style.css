@@ -8,3 +8,13 @@
   display: table;
   clear: both;
 }
+
+.btnChange {
+  background-color: white;
+  color: black;
+}
+
+.btnChange:focus {
+  background-color: chartreuse;
+  color: black;
+}

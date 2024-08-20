@@ -40,7 +40,7 @@ int on_message_callback(struct mosquitto *mosq, void *userdata, const struct mos
     std::cout << "----- Message -----" << std::endl;
     std::cout << "Subscriber sub_client received message of topic: " << message->topic << " | Data: " << reinterpret_cast<char *>(message->payload) << "\n";
 
-    led(reinterpret_cast<char *>(message->payload));
+    led(std::atoi(static_cast<const char *>(message->payload)));
 
     return 0;
 }

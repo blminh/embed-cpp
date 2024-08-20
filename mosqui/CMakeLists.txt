@@ -32,6 +32,7 @@ target_link_libraries(sub_client
     crypto
     pthread
     nlohmann_json::nlohmann_json
+    wiringPi
 )
 
 add_executable(pub_client

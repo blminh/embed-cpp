@@ -38,14 +38,14 @@ function searchItem() {
     });
 }
 
-function changeItemStatus() {
-  let status = document.getElementById("ledStatus").selectedOptions[0].value;
-  console.log("send msg " + status + "!");
+function changeItemStatus(val) {
+  // let status = document.getElementById("ledStatus").selectedOptions[0].value;
+  console.log("send msg " + val + "!");
 
   axios
-    .get("http://0.0.0.0:3000/change", {
+    .get("http://192.168.100.9:3000/change", {
       params: {
-        status: status,
+        status: val,
       },
     })
     .catch((err) => {

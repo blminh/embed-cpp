@@ -28,7 +28,7 @@ const changeItemStatus = expressAsyncHandler(async (req, res) => {
   client.on("connect", () => {
     console.log("Connect to mqtt!");
 
-    client.publish("led", "1", (err) => {
+    client.publish("led", status, (err) => {
       if (err) {
         console.error("Subscribe error:", err);
       } else {
