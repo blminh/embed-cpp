@@ -6,13 +6,28 @@
     <title>ITEMS</title>
     <script src="axios.min.js"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Welcome!</h1>
     <hr />
-    <h4>Create new item:</h4>
-    <label for="itemName">Name:</label>
-    <input id="itemName" type="text" placeholder="Name" />
+    <div class="row">
+      <div class="column">
+        <h4>Create new item:</h4>
+        <label for="itemName">Name:</label>
+        <input id="itemName" type="text" placeholder="Name" />
+      </div>
+      <div class="column">
+        <label for="ledStatus">Led status:</label>
+        <select id="ledStatus">
+          <option value="1">On</option>
+          <option value="0">Off</option>
+        </select>
+        <br />
+        <br />
+        <button id="btnChange" onclick="changeItemStatus()">Change</button>
+      </div>
+    </div>
     <br />
     <br />
     <label for="itemStatus">Status:</label>

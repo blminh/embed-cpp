@@ -4,6 +4,3 @@
 [submodule "mosqui/lib/mosquitto"]
 	path = mosqui/lib/mosquitto
 	url = https://github.com/eclipse/mosquitto.git
-[submodule "mosqui/lib/civetweb"]
-	path = mosqui/lib/civetweb
-	url = https://github.com/civetweb/civetweb.git

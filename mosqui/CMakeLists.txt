@@ -34,19 +34,6 @@ target_link_libraries(sub_client
     nlohmann_json::nlohmann_json
 )
 
-add_executable(web_server
-    "web_server/main.cpp"
-)
-target_link_libraries(web_server
-    civetweb
-    civetweb-cpp
-    mosquittopp
-    ssl
-    crypto
-    pthread
-    nlohmann_json::nlohmann_json
-)
-
 add_executable(pub_client
     "pub_client/pub_client_nonssl.cpp"
 )

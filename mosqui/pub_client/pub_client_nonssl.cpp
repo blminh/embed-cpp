@@ -82,19 +82,19 @@ int main(int argc, char *argv[])
     while (1)
     {
         std::string str = "Hello from pub_client!";
-        mosquitto_publish(mosq, NULL, "home", str.length(), str.c_str(), 1, true);
+        // mosquitto_publish(mosq, NULL, "home", str.length(), str.c_str(), 1, true);
 
-        std::string list = listRunningProcesses();
-        mosquitto_publish(mosq, NULL, "home", list.size(), list.c_str(), 1, true);
+        // std::string list = listRunningProcesses();
+        // mosquitto_publish(mosq, NULL, "apps", list.size(), list.c_str(), 1, true);
 
-        // std::string strTemp = temperatureCpu();
-        // mosquitto_publish(mosq, NULL, "home", strTemp.length(), strTemp.c_str(), 1, true);
+        std::string strTemp = temperatureCpu();
+        mosquitto_publish(mosq, NULL, "temperature", strTemp.length(), strTemp.c_str(), 1, true);
 
         // std::string strRamUsage = ramUsage();
-        // mosquitto_publish(mosq, NULL, "home", strRamUsage.length(), strRamUsage.c_str(), 1, true);
+        // mosquitto_publish(mosq, NULL, "ram", strRamUsage.length(), strRamUsage.c_str(), 1, true);
 
         // std::string strCpuUsage = cpuUsage();
-        // mosquitto_publish(mosq, NULL, "home", strCpuUsage.length(), strCpuUsage.c_str(), 1, true);
+        // mosquitto_publish(mosq, NULL, "cpu", strCpuUsage.length(), strCpuUsage.c_str(), 1, true);
         sleep(5);
     }
 

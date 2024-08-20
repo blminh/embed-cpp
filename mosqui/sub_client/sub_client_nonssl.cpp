@@ -6,6 +6,7 @@
 #include <mosquitto.h>
 #include <signal.h>
 #include <nlohmann/json.hpp>
+#include "led.cpp"
 
 static int run = -1;
 std::mutex mutex;
@@ -38,6 +39,9 @@ int on_message_callback(struct mosquitto *mosq, void *userdata, const struct mos
 {
     std::cout << "----- Message -----" << std::endl;
     std::cout << "Subscriber sub_client received message of topic: " << message->topic << " | Data: " << reinterpret_cast<char *>(message->payload) << "\n";
+
+    led(reinterpret_cast<char *>(message->payload));
+
     return 0;
 }
 
@@ -63,7 +67,7 @@ int main(int argc, char *argv[])
     mosquitto_subscribe_callback(
         on_message_callback,
         NULL,
-        "home",
+        "#",
         0,
         "0.0.0.0",
         1883,

@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 import db from "../database/db";
 import itemRoutes from "../routes/item";
+import systemRoutes from "../routes/system";
 
 const app = express();
 const port = 3000;
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/", itemRoutes);
+app.use("/", systemRoutes);
 
 db.sync().then(() => {
   app.listen(port, () => {
