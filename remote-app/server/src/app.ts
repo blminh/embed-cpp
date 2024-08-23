@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/", itemRoutes);
-app.use("/", systemRoutes);
+app.use("/api", itemRoutes);
+app.use("/api", systemRoutes);
 
 db.sync().then(() => {
   app.listen(port, () => {

@@ -23,6 +23,7 @@ const addItem = expressAsyncHandler(async (req, res) => {
 const changeItemStatus = expressAsyncHandler(async (req, res) => {
   let status: any = req.query.status;
   console.log(`Status: ${status}`);
+  res.json("Receive successfully!");
 
   const client = mqtt.connect("http://0.0.0.0:1883");
   client.on("connect", () => {

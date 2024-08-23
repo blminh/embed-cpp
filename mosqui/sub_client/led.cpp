@@ -8,7 +8,7 @@ void led(int status)
 
     wiringPiSetup();
 
-    int LED = 2;
+    int LED = 26;
     pinMode(LED, OUTPUT);
 
     if (status == 1)
