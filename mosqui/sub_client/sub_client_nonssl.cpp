@@ -7,6 +7,8 @@
 #include <signal.h>
 #include <nlohmann/json.hpp>
 #include "led.cpp"
+#include "lcd16.cpp"
+#include "thread"
 
 static int run = -1;
 std::mutex mutex;
@@ -40,7 +42,19 @@ int on_message_callback(struct mosquitto *mosq, void *userdata, const struct mos
     std::cout << "----- Message -----" << std::endl;
     std::cout << "Subscriber sub_client received message of topic: " << message->topic << " | Data: " << reinterpret_cast<char *>(message->payload) << "\n";
 
-    led(std::atoi(static_cast<const char *>(message->payload)));
+    std::string topic = static_cast<const char *>(message->topic);
+    std::string msg = static_cast<const char *>(message->payload);
+    nlohmann::json data = nlohmann::json::parse(msg);
+
+    if (topic == "led")
+    {
+        std::thread changeLed(led, data["pin"], data["status"]);
+        changeLed.detach();
+    }
+    else if (topic == "lcd16")
+    {
+        syncData(data["text"]);
+    }
 
     return 0;
 }
@@ -52,6 +66,9 @@ int main(int argc, char *argv[])
 
     signal(SIGINT, handle_sigint);
     signal(SIGSEGV, handle_sigint);
+
+    std::thread lcd(showLCD16);
+    lcd.detach();
 
     mosquitto_lib_init();
 

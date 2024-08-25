@@ -33,6 +33,7 @@ target_link_libraries(sub_client
     pthread
     nlohmann_json::nlohmann_json
     wiringPi
+    wiringPiDev
 )
 
 add_executable(pub_client

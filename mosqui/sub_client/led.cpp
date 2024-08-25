@@ -1,18 +1,20 @@
 #include <iostream>
 #include <wiringPi.h>
 
-void led(int status)
+void led(int pin, int status)
 {
     std::cout << "Raspberry Pi blink" << std::endl;
-    std::cout << "Status: " << status << std::endl;
 
-    wiringPiSetup();
+    if (wiringPiSetup() == -1)
+    {
+        std::cout << "Fail to setup wiringPi!!!" << std::endl;
+        throw;
+    }
 
-    int LED = 26;
-    pinMode(LED, OUTPUT);
+    pinMode(pin, OUTPUT);
 
     if (status == 1)
-        digitalWrite(LED, HIGH);
+        digitalWrite(pin, HIGH);
     else
-        digitalWrite(LED, LOW);
+        digitalWrite(pin, LOW);
 }
