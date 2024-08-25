@@ -7,13 +7,13 @@ defineProps({
   }
 })
 
-const emit = defineEmits(['change:lcdEmit'])
+const emit = defineEmits(['change:lcdText'])
 
-const lcdTextModel = defineModel('lcdTextModel')
+const lcd16Model = defineModel('lcd16Model')
 
 function show() {
-  console.log('From child: ' + lcdTextModel.value)
-  emit('change:lcdEmit', 'lcdTextModel')
+  console.log('From child: ' + lcd16Model.value.text)
+  emit('change:lcdText', 'lcd16Model')
 }
 </script>
 
@@ -23,11 +23,11 @@ v-container(fluid)
     variant="outlined"
     clearable
     :label="label"
-    v-model="lcdTextModel"
+    v-model="lcd16Model.text"
   )
   v-btn(
     variant="outlined"
-    color="primary"
+    color="secondary"
     @click="show"
   ) Show
 </template>

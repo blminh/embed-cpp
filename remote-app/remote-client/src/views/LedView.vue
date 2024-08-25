@@ -2,11 +2,12 @@
 
 <template lang="pug">
 v-container
-    Led(
-        label="Led 1"
-        v-model:ledStatusModel="ledStatusRef"
-        @update:ledStatus="changeStatus"
-    )
+  Led(
+    v-for="item in items"
+    :label="item.name"
+    v-model:ledStatusModel="item.status"
+    @update:ledStatus="changeStatus(item)"
+  )
 </template>
 
 <script setup lang="ts">
@@ -14,17 +15,16 @@ import { ref } from 'vue'
 import Led from '@/components/Led.vue'
 import axios from 'axios'
 
-const ledStatusRef = ref(false)
+const items = ref([
+  { id: 1, name: 'Led 1', pin: 23, status: false },
+  { id: 2, name: 'Led 2', pin: 26, status: false }
+])
 
-async function changeStatus() {
-  console.log('From parent: ' + ledStatusRef.value)
+async function changeStatus(item) {
+  console.log(`From parent: ${item.name} - ${item.status}`)
 
   axios
-    .get('/api/change', {
-      params: {
-        status: ledStatusRef.value ? 1 : 0
-      }
-    })
+    .post('/api/change', item)
     .then((res) => {
       console.log(`Send success! ${res.data}`)
       console.log(res)

@@ -7,9 +7,11 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [vue(), vueJsx()],
   server: {
+    origin: '0.0.0.0',
+    port: 8089,
     proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
+      '^/api': {
+        target: 'http://192.168.100.9:3000',
         changeOrigin: true,
         ws: true
       }
