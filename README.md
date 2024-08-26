@@ -1,3 +1,7 @@
+# Mosquitto
+# wiringPi
+# Raspberry 3b+
+
 # Compile source code
 
 ```
